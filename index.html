@@ -21,9 +21,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .ab{width:100%;margin-top:1rem;padding:.9rem;background:var(--ac);color:#fff;border:none;border-radius:10px;font-size:.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;}
 .ab:hover{opacity:.9;}
 .an{font-size:.775rem;color:var(--tx3);text-align:center;line-height:1.5;}
-.an a{color:var(--ac);text-decoration:none;}
-#AP{display:none;width:100%;max-width:520px;height:100vh;max-height:900px;flex-direction:column;background:var(--sf);overflow:hidden;box-shadow:0 2px 30px rgba(0,0,0,.1);position:relative;}
-@media(min-width:600px){#AP{border-radius:24px;height:calc(100vh - 3rem);margin:1.5rem auto;}body{padding:0 1rem;}}
+.an a{color:var(--ac);}
 .hd{display:flex;align-items:center;gap:12px;padding:.85rem 1.25rem;border-bottom:1px solid var(--bd);background:var(--sf);}
 .ha{width:38px;height:38px;background:var(--ac);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
 .hn{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;}
@@ -71,10 +69,41 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .mok{background:var(--ac);color:#fff;border:none;}
 .mcn{background:none;border:1px solid var(--bd);color:var(--tx2);}
 .msucc{text-align:center;padding:1rem 0;}
+
+/* SIDEBAR */
+#AP{display:none;width:100%;max-width:960px;height:100vh;max-height:900px;flex-direction:row;background:var(--sf);overflow:hidden;box-shadow:0 2px 30px rgba(0,0,0,.12);position:relative;}
+@media(min-width:600px){#AP{border-radius:24px;height:calc(100vh - 3rem);margin:1.5rem auto;}body{padding:0 1rem;}}
+#SB{width:220px;flex-shrink:0;background:#0f1e35;display:flex;flex-direction:column;overflow:hidden;position:sticky;top:0;height:100%;align-self:flex-start;}
+.sb-head{padding:1.1rem 1rem;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:9px;}
+.sb-icon{width:32px;height:32px;background:#1B4B8A;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.sb-title{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:500;color:#fff;line-height:1.2;}
+.sb-sub{font-size:.65rem;color:rgba(255,255,255,.4);margin-top:1px;}
+.sb-section{padding:.7rem .75rem .3rem;font-size:.6rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.3);}
+.sb-items{flex:1;overflow-y:auto;padding:.25rem 0;scrollbar-width:thin;}
+.sb-items::-webkit-scrollbar{width:2px;}
+.sb-items::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
+.stab{display:flex;align-items:center;gap:9px;padding:.55rem .85rem;margin:.1rem .5rem;border-radius:9px;cursor:pointer;transition:background .15s;border:none;background:none;width:calc(100% - 1rem);text-align:left;color:rgba(255,255,255,.65);font-family:'DM Sans',sans-serif;font-size:.8rem;}
+.stab:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.9);}
+.stab.active{background:rgba(27,75,138,.5);color:#fff;}
+.stab-ic{font-size:15px;flex-shrink:0;width:20px;text-align:center;}
+.sb-new{margin:.75rem .5rem .5rem;padding:.6rem .75rem;background:rgba(27,75,138,.4);border:1px solid rgba(27,75,138,.6);border-radius:9px;cursor:pointer;color:#fff;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;display:flex;align-items:center;gap:6px;transition:background .15s;width:calc(100% - 1rem);}
+.sb-new:hover{background:rgba(27,75,138,.65);}
+#CZ{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden;}
+.mob-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--tx2);margin-right:4px;}
+.fab-menu{display:none;position:absolute;bottom:80px;right:14px;z-index:40;width:44px;height:44px;background:var(--ac);border:none;border-radius:50%;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);color:#fff;font-size:18px;}
+@media(max-width:700px){
+  #SB{position:absolute;left:-220px;top:0;bottom:0;z-index:50;transition:left .25s ease;box-shadow:4px 0 20px rgba(0,0,0,.2);}
+  #SB.open{left:0;}
+  .mob-menu-btn{display:flex;align-items:center;}
+  .fab-menu{display:flex !important;}
+  #AP{max-width:100%;}
+}
+
 </style>
 </head>
 <body>
 
+<!-- ПАРОЛА ЕКРАН -->
 <div id="AS">
   <div>
     <div class="li">&#127968;</div>
@@ -87,28 +116,91 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
     <input type="password" id="akey" placeholder="Парола от имейла..." autocomplete="off">
     <button class="ab" onclick="startApp()">Влез &#8594;</button>
   </div>
-  <p class="an">Нямаш парола? Вземи пакета на <a href="https://imotspace.gumroad.com/l/imotspace" target="_blank" style="color:var(--ac);text-decoration:underline;">imot.space</a></p>
+  <p class="an">Нямаш парола? Вземи пакета на <a href="https://imotspace.gumroad.com/l/imotspace" target="_blank">imot.space</a></p>
 </div>
 
+<!-- ГЛАВЕН ЕКРАН -->
 <div id="AP">
-  <div class="hd">
-    <div class="ha">&#127968;</div>
-    <div>
-      <div class="hn">Брокер в джоба</div>
-      <div class="hs"><span style="width:5px;height:5px;background:var(--a2);border-radius:50%;display:inline-block"></span>&nbsp;Radost &middot; онлайн</div>
+  <!-- СТРАНИЧНО МЕНЮ -->
+  <div id="SB">
+    <div class="sb-head">
+      <div class="sb-icon">&#127968;</div>
+      <div>
+        <div class="sb-title">Брокер в джоба</div>
+        <div class="sb-sub">Radost &middot; онлайн</div>
+      </div>
     </div>
-    <button class="hb" onclick="resetChat()">Нов разговор</button>
+    <div class="sb-items">
+      <div class="sb-section">Стъпки при покупка</div>
+      <button class="stab active" onclick="stabClick(this,'Помогни ми да разбера реалния си бюджет с всички разходи, данъци и такси.')">
+        <span class="stab-ic">&#128176;</span><span>Бюджет и разходи</span>
+      </button>
+      <button class="stab" onclick="stabClick(this,'Намерих имот. Как да направя правилния оглед и какво точно да проверя?')">
+        <span class="stab-ic">&#128269;</span><span>Оглед на имот</span>
+      </button>
+      <button class="stab" onclick="stabClick(this,'Как да проверя документите и тежестите преди да дам капаро?')">
+        <span class="stab-ic">&#128196;</span><span>Проверка на документи</span>
+      </button>
+      <button class="stab" onclick="stabClick(this,'Обясни ми предварителния договор — какви клаузи трябват и как да се защитя?')">
+        <span class="stab-ic">&#9997;&#65039;</span><span>Предварителен договор</span>
+      </button>
+      <button class="stab" onclick="stabClick(this,'Как работи нотариалният акт и какво да проверя в деня на сделката?')">
+        <span class="stab-ic">&#9878;&#65039;</span><span>Нотариален акт</span>
+      </button>
+      <div class="sb-section">Финансиране</div>
+      <button class="stab" onclick="stabClick(this,'Помогни ми с ипотеката — как да сравня банки, какви документи и каква вноска мога да си позволя?')">
+        <span class="stab-ic">&#127981;</span><span>Ипотека и банки</span>
+      </button>
+      <button class="stab" onclick="stabClick(this,'Искам да преговарям за цената. Как да го направя правилно?')">
+        <span class="stab-ic">&#128176;</span><span>Преговори за цена</span>
+      </button>
+      <div class="sb-section">Подготовка</div>
+      <button class="stab" onclick="stabClick(this,'Подготви ме за срещата с брокера — какво да питам и как да не бъда манипулиран?')">
+        <span class="stab-ic">&#129309;</span><span>Среща с брокер</span>
+      </button>
+      <button class="stab" onclick="stabClick(this,'Имам проблем с покупката. Кажи ми какво да правя.')">
+        <span class="stab-ic">&#128680;</span><span>Имам проблем</span>
+      </button>
+      <button class="stab" onclick="stabClick(this,'Искам да анализираш текст от моя договор. Ще го paste-на тук.')">
+        <span class="stab-ic">&#128202;</span><span>Анализ на договор</span>
+      </button>
+      <div class="sb-section">Пазарни данни</div>
+      <button class="stab" onclick="stabClick(this,'Провери актуалните цени на имоти в квартала, който ме интересува.')">
+        <span class="stab-ic">&#128200;</span><span>Актуални цени</span>
+      </button>
+      <button class="stab" onclick="stabClick(this,'Какви са актуалните лихви по ипотеки от различни банки?')">
+        <span class="stab-ic">&#128184;</span><span>Лихви по ипотеки</span>
+      </button>
+    </div>
+    <button class="sb-new" onclick="resetChat()">&#43; Нов разговор</button>
   </div>
-  <div class="ct" id="chat"></div>
-  <div class="ip">
-    <textarea id="ui" placeholder="Напиши въпрос..." rows="1" onkeydown="hk(event)" oninput="ar(this)"></textarea>
-    <button class="sb" id="sb" onclick="snd()">
-      <svg viewBox="0 0 20 20"><path d="M2.5 10L17.5 2.5L12.5 10L17.5 17.5L2.5 10Z"/></svg>
-    </button>
-  </div>
-  <div class="cbar">
-    <button onclick="openModal('credit')" style="flex:1;padding:.6rem .5rem;border-radius:9px;font-size:.75rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;background:var(--a2l);color:var(--a2);border:1px solid #B8DDD0;">&#128203; Кредитен консултант</button>
-  </div>
+  <!-- ЧАТ ЗОНА -->
+  <div id="CZ">
+    <div class="hd">
+      <button class="mob-menu-btn" onclick="toggleMenu()">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="currentColor"/><rect y="9" width="20" height="2" rx="1" fill="currentColor"/><rect y="15" width="20" height="2" rx="1" fill="currentColor"/></svg>
+      </button>
+      <div class="ha">&#127968;</div>
+      <div>
+        <div class="hn">Брокер в джоба</div>
+        <div class="hs"><span style="width:5px;height:5px;background:var(--a2);border-radius:50%;display:inline-block"></span>&nbsp;Radost &middot; онлайн</div>
+      </div>
+      <button class="hb" onclick="resetChat()">Нов разговор</button>
+    </div>
+    <div class="ct" id="chat"></div>
+    <div class="ip">
+      <textarea id="ui" placeholder="Напиши въпрос..." rows="1" onkeydown="hk(event)" oninput="ar(this)"></textarea>
+      <button class="sb" id="sb" onclick="snd()">
+        <svg viewBox="0 0 20 20"><path d="M2.5 10L17.5 2.5L12.5 10L17.5 17.5L2.5 10Z"/></svg>
+      </button>
+    </div>
+    <button class="fab-menu" onclick="toggleMenu()">&#9776;</button>
+    <div class="cbar">
+      <button onclick="openModal('credit')" style="flex:1;padding:.6rem .5rem;border-radius:9px;font-size:.75rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;background:var(--a2l);color:var(--a2);border:1px solid #B8DDD0;">&#128203; Кредитен консултант</button>
+    </div>
+  </div><!-- /CZ -->
+
+  <!-- МОДАЛ -->
   <div class="ovl" id="ovl">
     <div class="mbox">
       <div id="mform">
@@ -138,9 +230,31 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
       </div>
     </div>
   </div>
-</div>
+
+</div><!-- /AP -->
 
 <script>
+
+function stabClick(el, msg) {
+  document.querySelectorAll('.stab').forEach(function(t){t.classList.remove('active');});
+  el.classList.add('active');
+  document.getElementById('SB').classList.remove('open');
+  document.getElementById('ui').value = msg;
+  snd();
+  document.getElementById('ui').value = '';
+}
+function toggleMenu() {
+  document.getElementById('SB').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sb = document.getElementById('SB');
+  if (sb && sb.classList.contains('open')) {
+    if (!sb.contains(e.target) && !e.target.closest('.mob-menu-btn') && !e.target.closest('.fab-menu')) {
+      sb.classList.remove('open');
+    }
+  }
+});
+
 var K = '', busy = false, step = 0, hist = [], prof = {o:null,g:null,f:null}, mtype = 'broker';
 
 var SYS = [
