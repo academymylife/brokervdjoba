@@ -22,7 +22,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .ab:hover{opacity:.9;}
 .an{font-size:.775rem;color:var(--tx3);text-align:center;line-height:1.5;}
 .an a{color:var(--ac);text-decoration:none;}
-#AP{display:none;width:100%;max-width:960px;flex-direction:row;height:100vh;max-height:900px;flex-direction:column;background:var(--sf);overflow:hidden;box-shadow:0 2px 30px rgba(0,0,0,.1);position:relative;}
+#AP{display:none;width:100%;max-width:520px;height:100vh;max-height:900px;flex-direction:column;background:var(--sf);overflow:hidden;box-shadow:0 2px 30px rgba(0,0,0,.1);position:relative;}
 @media(min-width:600px){#AP{border-radius:24px;height:calc(100vh - 3rem);margin:1.5rem auto;}body{padding:0 1rem;}}
 .hd{display:flex;align-items:center;gap:12px;padding:.85rem 1.25rem;border-bottom:1px solid var(--bd);background:var(--sf);}
 .ha{width:38px;height:38px;background:var(--ac);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
@@ -71,32 +71,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .mok{background:var(--ac);color:#fff;border:none;}
 .mcn{background:none;border:1px solid var(--bd);color:var(--tx2);}
 .msucc{text-align:center;padding:1rem 0;}
-
-#SB{width:220px;flex-shrink:0;background:#0f1e35;display:flex;flex-direction:column;overflow:hidden;position:sticky;top:0;height:100%;align-self:flex-start;}
-.sb-head{padding:1.1rem 1rem;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:9px;}
-.sb-icon{width:32px;height:32px;background:#1B4B8A;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
-.sb-title{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:500;color:#fff;line-height:1.2;}
-.sb-sub{font-size:.65rem;color:rgba(255,255,255,.4);margin-top:1px;}
-.sb-section{padding:.7rem .75rem .3rem;font-size:.6rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.3);}
-.sb-items{flex:1;overflow-y:auto;padding:.25rem 0;scrollbar-width:thin;}
-.sb-items::-webkit-scrollbar{width:2px;}
-.sb-items::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
-.stab{display:flex;align-items:center;gap:9px;padding:.55rem .85rem;margin:.1rem .5rem;border-radius:9px;cursor:pointer;transition:background .15s;border:none;background:none;width:calc(100% - 1rem);text-align:left;color:rgba(255,255,255,.65);font-family:'DM Sans',sans-serif;font-size:.8rem;}
-.stab:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.9);}
-.stab.active{background:rgba(27,75,138,.5);color:#fff;}
-.stab-ic{font-size:15px;flex-shrink:0;width:20px;text-align:center;}
-.sb-new{margin:.75rem .5rem .5rem;padding:.6rem .75rem;background:rgba(27,75,138,.4);border:1px solid rgba(27,75,138,.6);border-radius:9px;cursor:pointer;color:#fff;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;display:flex;align-items:center;gap:6px;transition:background .15s;width:calc(100% - 1rem);}
-.sb-new:hover{background:rgba(27,75,138,.65);}
-.mob-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--tx2);margin-right:4px;}
-.fab-menu{display:none;position:absolute;bottom:80px;right:14px;z-index:40;width:44px;height:44px;background:var(--ac);border:none;border-radius:50%;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);color:#fff;font-size:18px;}
-#CZ{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden;}
-@media(max-width:700px){
-  #SB{position:absolute;left:-220px;top:0;bottom:0;z-index:50;transition:left .25s ease;box-shadow:4px 0 20px rgba(0,0,0,.2);}
-  #SB.open{left:0;}
-  .mob-menu-btn{display:flex;align-items:center;}
-  .fab-menu{display:flex !important;}
-  #AP{max-width:100%;}
-}
 </style>
 </head>
 <body>
@@ -117,61 +91,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 </div>
 
 <div id="AP">
-  <div id="SB">
-    <div class="sb-head">
-      <div class="sb-icon">&#127968;</div>
-      <div>
-        <div class="sb-title">Брокер в джоба</div>
-        <div class="sb-sub">Radost &middot; онлайн</div>
-      </div>
-    </div>
-    <div class="sb-items">
-      <div class="sb-section">Стъпки при покупка</div>
-      <button class="stab active" onclick="stabClick(this,'Помогни ми да разбера реалния си бюджет с всички разходи, данъци и такси.')">
-        <span class="stab-ic">&#128176;</span><span>Бюджет и разходи</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Намерих имот. Как да направя правилния оглед и какво точно да проверя?')">
-        <span class="stab-ic">&#128269;</span><span>Оглед на имот</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Как да проверя документите и тежестите преди да дам капаро?')">
-        <span class="stab-ic">&#128196;</span><span>Проверка на документи</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Обясни ми предварителния договор — какви клаузи трябват и как да се защитя?')">
-        <span class="stab-ic">&#9997;&#65039;</span><span>Предварителен договор</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Как работи нотариалният акт и какво да проверя в деня на сделката?')">
-        <span class="stab-ic">&#9878;&#65039;</span><span>Нотариален акт</span>
-      </button>
-      <div class="sb-section">Финансиране</div>
-      <button class="stab" onclick="stabClick(this,'Помогни ми с ипотеката — как да сравня банки, какви документи и каква вноска мога да си позволя?')">
-        <span class="stab-ic">&#127981;</span><span>Ипотека и банки</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Искам да преговарям за цената. Как да го направя правилно?')">
-        <span class="stab-ic">&#128176;</span><span>Преговори за цена</span>
-      </button>
-      <div class="sb-section">Подготовка</div>
-      <button class="stab" onclick="stabClick(this,'Подготви ме за срещата с брокера — какво да питам и как да не бъда манипулиран?')">
-        <span class="stab-ic">&#129309;</span><span>Среща с брокер</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Имам проблем с покупката. Кажи ми какво да правя.')">
-        <span class="stab-ic">&#128680;</span><span>Имам проблем</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Искам да анализираш текст от моя договор. Ще го paste-на тук.')">
-        <span class="stab-ic">&#128202;</span><span>Анализ на договор</span>
-      </button>
-      <div class="sb-section">Пазарни данни</div>
-      <button class="stab" onclick="stabClick(this,'Провери актуалните цени на имоти в квартала, който ме интересува.')">
-        <span class="stab-ic">&#128200;</span><span>Актуални цени</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Какви са актуалните лихви по ипотеки от различни банки?')">
-        <span class="stab-ic">&#128184;</span><span>Лихви по ипотеки</span>
-      </button>
-    </div>
-    <button class="sb-new" onclick="resetChat()">&#43; Нов разговор</button>
-  </div>
-  <div id="CZ">
   <div class="hd">
-    <button class="mob-menu-btn" onclick="toggleMenu()"><svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="currentColor"/><rect y="9" width="20" height="2" rx="1" fill="currentColor"/><rect y="15" width="20" height="2" rx="1" fill="currentColor"/></svg></button>
     <div class="ha">&#127968;</div>
     <div>
       <div class="hn">Брокер в джоба</div>
@@ -189,8 +109,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
   <div class="cbar">
     <button onclick="openModal('credit')" style="flex:1;padding:.6rem .5rem;border-radius:9px;font-size:.75rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;background:var(--a2l);color:var(--a2);border:1px solid #B8DDD0;">&#128203; Кредитен консултант</button>
   </div>
-  <button class="fab-menu" onclick="toggleMenu()">&#9776;</button>
-</div><!-- /CZ -->
   <div class="ovl" id="ovl">
     <div class="mbox">
       <div id="mform">
@@ -263,8 +181,9 @@ var SYS = [
   'ПРАВНА БАЗА — ЗС: Чл.77 ЗС: Правото на собственост се придобива чрез правна сделка, по давност или по други начини, определени в закона. Чл.79 ЗС: Правото на собственост по давност върху недвижим имот се придобива с непрекъснато владение 10 години (недобросъвестно) или 5 години (добросъвестно). Чл.108 ЗС: Собственикът може да иска своята вещ от всяко лице, което я владее или държи без правно основание — ревандикационен иск. ВАЖНО ЗА КУПУВАЧА: При покупка от несобственик — ако купувачът е добросъвестен, придобива собствеността след 5 години владение. Затова проверката на собствеността ПРЕДИ сделката е критична.',
   'ПРАВНА БАЗА — КАПАРО НА ПРАКТИКА: При предварителен договор капарото (капарото) е 10% от цената. Ако КУПУВАЧЪТ се откаже — губи капарото. Ако ПРОДАВАЧЪТ се откаже — дължи двойния капаро. Задължително трябва да е записано изрично в договора — без текст, без защита. Плащане САМО по банков път — никога в брой. ДИСКЛЕЙМЕР: Радост дава правна информация, не правни съвети. При сложни казуси насочва към адвокат.',
   'ПРАВНА БАЗА — ЗУТ: АКТ 14 (чл.181 ЗУТ) — Акт за приемане на конструкцията при груб строеж. Имотът може да се продава, НО не е годен за обитаване. АКТ 15 (чл.176 ЗУТ) — Констативен акт за завършване на строежа. Предава строежа от строителя на предприемача. Сградата е завършена, но все още не е законно годна за ползване — нанасянето е незаконно! АКТ 16 (чл.177 ЗУТ) — Финалният документ. За жилищни сгради (4-5 кат.) се издава Удостоверение за въвеждане в експлоатация от Главния архитект на общината. Само след Акт 16 имотът е законно годен за обитаване. Чл.178 ЗУТ: Забранено е ползването на строежи преди въвеждане в експлоатация. ВАЖНО: Имот без Акт 16 не може да се финансира с ипотека. При покупка на Акт 14 или 15 — задължително вписвай краен срок за Акт 16 в предв. договор с неустойка при неспазване.',
-  'ПРАВНА БАЗА — ЗКИР: Кадастралният идентификатор е уникалният номер на всеки имот — ЕГН-то на имота. Кадастрална скица/схема — официален документ от АГКК (Агенция по геодезия, картография и кадастър). Показва границите, площта, идентификатора и собственика. ВАЛИДНОСТ: Скицата НЕ е ограничена до 6 месеца. Тя остава валидна, докато не се променят характеристиките на имота — площта, границите спрямо съседни парцели, предназначението (напр. от жилищна на търговска зона) или наличието на нови постройки и сгради. НИКОГА не казвай че скицата е валидна 6 месеца — това е остаряла информация. При предв. договор — достатъчна е електронна справка от kais.cadastre.bg (безплатна). При нотариален акт — задължителна официална скица/схема от АГКК. Имотен регистър (Агенция по вписванията) — съдържа тежести, ипотеки и прехвърляния. Проверка за тежести онлайн: portal.registryagency.bg — за последните 10 години.',
-  'ЧЕКЛИСТИ В ЧАТА: Давай чеклистите ДИРЕКТНО в чата при споменаване на съответната тема. НИКОГА не казвай виж чеклиста в пакета. ЧЕКЛИСТ ПРЕДВАРИТЕЛЕН ДОГОВОР: 1)Пълни данни на страните 2)Кадастрален идентификатор 3)Цена с цифри И думи 4)Капаро 10% само по банков път 5)Клауза при банков отказ 6)Клауза при открити тежести 7)Точна дата за нотариален акт 8)Неустойки двойно при отказ на продавача 9)Опис на обзавеждане. ЧЕКЛИСТ ДОКУМЕНТИ: 1)Нотариален акт копие за проверка 2)Тежести онлайн portal.registryagency.bg 3)Кадастрална скица електронна справка 4)Лична карта на продавача съответства на акта 5)При съсобственост всички собственици подписват. ЧЕКЛИСТ ИПОТЕКА: 1)Лична карта 2)Документ за доход 3)Банкови извлечения 3 месеца 4)Трудов договор 5)При самоосигуряващи се данъчна декларация. Сравни ГПР на минимум 3 банки. ЧЕКЛИСТ НОТАРИАЛЕН АКТ: 1)Насрочи ПРЕДИ обяд 2)Провери имената и ЕГН в проекта 3)Провери кадастралния идентификатор 4)Клауза Евикция задължително 5)Плащане само по банков път 6)Нотариусът по район на имота.',
+  'ПРАВНА БАЗА — ЗКИР: Кадастралният идентификатор е уникалният номер на всеки имот — ЕГН-то на имота. Кадастрална скица/схема — официален документ от АГКК (Агенция по геодезия, картография и кадастър). Показва границите, площта, идентификатора и собственика. ВАЛИДНОСТ: Скицата НЕ е ограничена до 6 месеца. Тя остава валидна, докато не се променят характеристиките на имота — площта, границите спрямо съседни парцели, предназначението (напр. от жилищна на търговска зона) или наличието на нови постройки и сгради. НИКОГА не казвай че скицата е валидна 6 месеца — това е остаряла информация. При предв. договор — достатъчна е електронна справка от kais.cadastre.bg (безплатна). При нотариален акт — задължителна официална скица/схема от АГКК. Имотен регистър (Агенция по вписванията) — съдържа тежести, ипотеки и прехвърляния. Проверка за тежести онлайн: portal.registryagency.bg — за последните 10 години. Таксата е 0.51€ (1 лв.) на справка.',
+  'СЕРТИФИКАТ ЗА ЕНЕРГИЙНА ЕФЕКТИВНОСТ: НЕ е задължителен документ при покупка на имот в България. Все още много малко сгради имат такъв сертификат. НИКОГА не го включвай в списъка с задължителни документи. Ако потребителят пита — обясни: желателен е, но не задължителен по закон.',
+  'ЧЕКЛИСТИ В ЧАТА: Давай чеклистите ДИРЕКТНО в чата при споменаване на съответната тема. НИКОГА не казвай виж чеклиста в пакета. ЧЕКЛИСТ ПРЕДВАРИТЕЛЕН ДОГОВОР: 1)Пълни данни на страните 2)Кадастрален идентификатор 3)Цена с цифри И думи 4)Капаро 10% само по банков път 5)Клауза при банков отказ 6)Клауза при открити тежести 7)Точна дата за нотариален акт 8)Неустойки двойно при отказ на продавача 9)Опис на обзавеждане. ЧЕКЛИСТ ДОКУМЕНТИ: 1)Нотариален акт копие за проверка 2)Тежести онлайн portal.registryagency.bg (такса 0.51€) 3)Кадастрална скица електронна справка 4)Лична карта на продавача съответства на акта 5)При съсобственост всички собственици подписват. ЧЕКЛИСТ ИПОТЕКА: 1)Лична карта 2)Документ за доход 3)Банкови извлечения 3 месеца 4)Трудов договор 5)При самоосигуряващи се данъчна декларация. Сравни ГПР на минимум 3 банки. ЧЕКЛИСТ НОТАРИАЛЕН АКТ: 1)Насрочи ПРЕДИ обяд 2)Провери имената и ЕГН в проекта 3)Провери кадастралния идентификатор 4)Клауза Евикция задължително 5)Плащане само по банков път 6)Нотариусът по район на имота.',
   'КРИЗИСНИ СЦЕНАРИИ: При проблемна ситуация давай конкретен план, не само препратка към адвокат. БАНКОВ ОТКАЗ: 1)Провери за клауза за връщане на капарото в договора 2)Уведоми писмено продавача 3)При липса на клауза — адвокат. ПРОДАВАЧ ОТКАЗВА: Дължи двойното капаро по чл.93 ЗЗД — изпрати писмено искане, при отказ — районен съд. ОТКРИТИ ТЕЖЕСТИ: Развали писмено, поискай капарото обратно. СКРИТИ ДЕФЕКТИ: чл.193 ЗЗД — документирай с снимки веднага.',
   'ПОДГОТОВКА ЗА СРЕЩА С БРОКЕР: Давай конкретен скрипт. Брокерът на обявата работи за ПРОДАВАЧА, не за купувача. ВЪПРОСИ: 1)За кого работите? 2)Колко е комисионната? 3)Кога е последното прехвърляне? 4)Има ли тежести? 5)Защо продава? 6)Колко е на пазара? 7)Има ли други оферти? ТАКТИКА: Не показвай ентусиазъм на огледа. Питай за проблемите преди да хвалиш. Не решавай на място.',
   'АНАЛИЗ НА ДОГОВОР: При paste на текст от договор — анализирай директно. Проверявай: клауза банков отказ, клауза тежести, точна дата НА, условия на капарото, неустойки, опис обзавеждане. Посочвай кои клаузи липсват и какво точно да се добави. При сложни случаи препоръчвай адвокат.'
@@ -584,27 +503,6 @@ function submitForm() {
 }
 
 document.getElementById('akey').addEventListener('keydown', function(e) { if (e.key === 'Enter') { startApp(); } });
-
-
-function stabClick(el, msg) {
-  document.querySelectorAll('.stab').forEach(function(t){t.classList.remove('active');});
-  el.classList.add('active');
-  document.getElementById('SB').classList.remove('open');
-  document.getElementById('ui').value = msg;
-  snd();
-  document.getElementById('ui').value = '';
-}
-function toggleMenu() {
-  document.getElementById('SB').classList.toggle('open');
-}
-document.addEventListener('click', function(e) {
-  var sb = document.getElementById('SB');
-  if (sb && sb.classList.contains('open')) {
-    if (!sb.contains(e.target) && !e.target.closest('.mob-menu-btn') && !e.target.closest('.fab-menu')) {
-      sb.classList.remove('open');
-    }
-  }
-});
 
 </script>
 </body>
