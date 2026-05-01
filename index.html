@@ -3,622 +3,731 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Брокер в джоба</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Брокер в джоба — Спокойствие при покупка на имот</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F7F4EE;--sf:#fff;--ac:#1B4B8A;--al:#EBF0F9;--a2:#2D7A5F;--a2l:#E8F5F0;--tx:#1A1A1A;--tx2:#5A5A5A;--tx3:#9A9A9A;--bd:#E5E0D8;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-#AS{width:100%;max-width:460px;padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
-.li{width:64px;height:64px;background:var(--ac);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:28px;}
-.lt{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:600;letter-spacing:-0.02em;text-align:center;}
-.ls{font-size:.875rem;color:var(--tx2);margin-top:.4rem;font-weight:300;text-align:center;}
-.cd{background:var(--sf);border-radius:16px;padding:1.75rem;width:100%;border:1px solid var(--bd);box-shadow:0 2px 20px rgba(0,0,0,.06);}
-.cd h2{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;margin-bottom:.5rem;}
-.cd p{font-size:.875rem;color:var(--tx2);line-height:1.6;margin-bottom:1.25rem;}
-.cd input{width:100%;padding:.85rem 1rem;border:1.5px solid var(--bd);border-radius:10px;font-size:.875rem;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);outline:none;transition:border-color .2s;display:block;}
-.cd input:focus{border-color:var(--ac);}
-.ab{width:100%;margin-top:1rem;padding:.9rem;background:var(--ac);color:#fff;border:none;border-radius:10px;font-size:.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;}
-.ab:hover{opacity:.9;}
-.an{font-size:.775rem;color:var(--tx3);text-align:center;line-height:1.5;}
-.an a{color:var(--ac);}
-.hd{display:flex;align-items:center;gap:12px;padding:.85rem 1.25rem;border-bottom:1px solid var(--bd);background:var(--sf);}
-.ha{width:38px;height:38px;background:var(--ac);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
-.hn{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;}
-.hs{font-size:.7rem;color:var(--a2);display:flex;align-items:center;gap:3px;margin-top:1px;}
-.hb{background:none;border:1px solid var(--bd);border-radius:8px;padding:5px 9px;font-size:.72rem;color:var(--tx2);cursor:pointer;font-family:'DM Sans',sans-serif;margin-left:auto;}
-.ct{flex:1;overflow-y:auto;padding:1rem 1rem 1.25rem;display:flex;flex-direction:column;gap:.875rem;background:var(--bg);}
-.ct::-webkit-scrollbar{width:3px;}
-.ct::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px;}
-.rw{display:flex;gap:8px;align-items:flex-end;animation:fu .25s ease;}
-@keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.rw.u{flex-direction:row-reverse;}
-.av{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;font-weight:500;}
-.bav{background:var(--ac);color:#fff;font-size:13px;}
-.uav{background:var(--al);color:var(--ac);}
-.bb{max-width:82%;padding:.7rem .95rem;border-radius:14px;font-size:.875rem;line-height:1.6;word-break:break-word;}
-.bb.b{background:#fff;color:var(--tx);border-radius:14px 14px 14px 4px;border:1px solid var(--bd);}
-.bb.u{background:var(--ac);color:#fff;border-radius:14px 14px 4px 14px;}
-.td{display:flex;gap:4px;padding:.5rem .4rem;align-items:center;}
-.td span{width:6px;height:6px;background:var(--tx3);border-radius:50%;animation:bl 1.3s infinite;}
-.td span:nth-child(2){animation-delay:.2s;}
-.td span:nth-child(3){animation-delay:.4s;}
-@keyframes bl{0%,80%,100%{opacity:.25;transform:scale(.85)}40%{opacity:1;transform:scale(1)}}
-.ch{display:flex;flex-wrap:wrap;gap:5px;padding-left:36px;animation:fu .25s ease .1s both;}
-.cp{background:#F0EDE8;border:1px solid var(--bd);border-radius:18px;padding:5px 13px;font-size:.8rem;color:var(--tx);cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .12s;}
-.cp:hover{background:var(--al);border-color:var(--ac);color:var(--ac);}
-.ts{text-align:center;font-size:.68rem;color:var(--tx3);padding:.2rem 0;}
-.bg{background:var(--a2l);border:1px solid #B8DDD0;border-radius:9px;padding:7px 11px;font-size:.75rem;color:var(--a2);margin-left:36px;display:inline-flex;gap:5px;animation:fu .25s ease;}
-.pr{background:#FFF8E7;border:1px solid #F0C060;border-radius:12px;padding:.75rem 1rem;margin-left:36px;font-size:.83rem;color:#7A4F00;line-height:1.55;animation:fu .25s ease;}
-.ip{padding:.65rem .875rem;background:var(--sf);border-top:1px solid var(--bd);display:flex;gap:7px;align-items:flex-end;}
-.ip textarea{flex:1;border:1.5px solid var(--bd);border-radius:11px;padding:.65rem .85rem;font-size:.875rem;font-family:'DM Sans',sans-serif;color:var(--tx);background:var(--bg);resize:none;outline:none;max-height:110px;min-height:40px;line-height:1.5;transition:border-color .2s;}
-.ip textarea:focus{border-color:var(--ac);}
-.ip textarea::placeholder{color:var(--tx3);}
-.sb{width:40px;height:40px;background:var(--ac);border:none;border-radius:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.sb:disabled{opacity:.4;cursor:not-allowed;}
-.sb svg{width:16px;height:16px;fill:#fff;}
-.er{background:#FEF2F2;border:1px solid #FECACA;border-radius:9px;padding:9px 13px;font-size:.8rem;color:#B91C1C;margin-left:36px;line-height:1.5;}
-.cbar{display:none;gap:6px;padding:.6rem .875rem;background:var(--sf);border-top:1px solid var(--bd);}
-.ovl{display:none;position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.45);z-index:100;align-items:center;justify-content:center;padding:1.5rem;}
-.mbox{background:#fff;border-radius:16px;padding:1.5rem;width:100%;max-width:360px;border:1px solid var(--bd);}
-.mbox h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;margin-bottom:.35rem;}
-.mbox p{font-size:.8rem;color:var(--tx2);margin-bottom:1rem;line-height:1.5;}
-.mbox input,.mbox select{width:100%;padding:.75rem .9rem;border:1.5px solid var(--bd);border-radius:9px;font-size:.875rem;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);outline:none;margin-bottom:.6rem;display:block;}
-.mrow{display:flex;gap:8px;margin-top:.4rem;}
-.mrow button{flex:1;padding:.8rem;border-radius:9px;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;}
-.mok{background:var(--ac);color:#fff;border:none;}
-.mcn{background:none;border:1px solid var(--bd);color:var(--tx2);}
-.msucc{text-align:center;padding:1rem 0;}
+:root {
+  --ink: #0D1B2A;
+  --blue: #1B4B8A;
+  --blue-l: #2A5FA8;
+  --sky: #EBF0F9;
+  --cream: #FAF8F4;
+  --warm: #F5EFE6;
+  --gold: #C8973A;
+  --green: #1A6B4A;
+  --green-l: #E6F4EE;
+  --gray: #6B7A8D;
+  --line: #E8E2D9;
+  --white: #FFFFFF;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--ink); overflow-x:hidden; }
 
-/* SIDEBAR */
-#AP{display:none;width:100%;max-width:960px;height:100vh;max-height:900px;flex-direction:row;background:var(--sf);overflow:hidden;box-shadow:0 2px 30px rgba(0,0,0,.12);position:relative;}
-@media(min-width:600px){#AP{border-radius:24px;height:calc(100vh - 3rem);margin:1.5rem auto;}body{padding:0 1rem;}}
-#SB{width:220px;flex-shrink:0;background:#0f1e35;display:flex;flex-direction:column;overflow:hidden;position:sticky;top:0;height:100%;align-self:flex-start;}
-.sb-head{padding:1.1rem 1rem;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:9px;}
-.sb-icon{width:32px;height:32px;background:#1B4B8A;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
-.sb-title{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:500;color:#fff;line-height:1.2;}
-.sb-sub{font-size:.65rem;color:rgba(255,255,255,.4);margin-top:1px;}
-.sb-section{padding:.7rem .75rem .3rem;font-size:.6rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.3);}
-.sb-items{flex:1;overflow-y:auto;padding:.25rem 0;scrollbar-width:thin;}
-.sb-items::-webkit-scrollbar{width:2px;}
-.sb-items::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
-.stab{display:flex;align-items:center;gap:9px;padding:.55rem .85rem;margin:.1rem .5rem;border-radius:9px;cursor:pointer;transition:background .15s;border:none;background:none;width:calc(100% - 1rem);text-align:left;color:rgba(255,255,255,.65);font-family:'DM Sans',sans-serif;font-size:.8rem;}
-.stab:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.9);}
-.stab.active{background:rgba(27,75,138,.5);color:#fff;}
-.stab-ic{font-size:15px;flex-shrink:0;width:20px;text-align:center;}
-.sb-new{margin:.75rem .5rem .5rem;padding:.6rem .75rem;background:rgba(27,75,138,.4);border:1px solid rgba(27,75,138,.6);border-radius:9px;cursor:pointer;color:#fff;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;display:flex;align-items:center;gap:6px;transition:background .15s;width:calc(100% - 1rem);}
-.sb-new:hover{background:rgba(27,75,138,.65);}
-#CZ{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden;}
-.mob-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--tx2);margin-right:4px;}
-.fab-menu{display:none;position:absolute;bottom:80px;right:14px;z-index:40;width:44px;height:44px;background:var(--ac);border:none;border-radius:50%;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);color:#fff;font-size:18px;}
-@media(max-width:700px){
-  #SB{position:absolute;left:-220px;top:0;bottom:0;z-index:50;transition:left .25s ease;box-shadow:4px 0 20px rgba(0,0,0,.2);}
-  #SB.open{left:0;}
-  .mob-menu-btn{display:flex;align-items:center;}
-  .fab-menu{display:flex !important;}
-  #AP{max-width:100%;}
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.1rem 3rem;
+  background:rgba(250,248,244,0.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo { font-family:'Fraunces',serif; font-size:1.2rem; font-weight:600; color:var(--ink); letter-spacing:-.02em; }
+.nav-logo span { color:var(--blue); font-style:italic; }
+.nav-right { display:flex; align-items:center; gap:1.5rem; }
+.nav-demo { font-size:.85rem; color:var(--gray); text-decoration:none; font-weight:500; }
+.nav-demo:hover { color:var(--blue); }
+.nav-cta {
+  background:var(--ink); color:#fff;
+  padding:.6rem 1.5rem; border-radius:50px;
+  font-size:.875rem; font-weight:500;
+  text-decoration:none; transition:.2s;
+}
+.nav-cta:hover { background:var(--blue); }
+
+/* HERO */
+.hero {
+  min-height:100vh;
+  padding:8rem 3rem 5rem;
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1.1fr .9fr;
+  gap:5rem; align-items:center;
 }
 
+.hero-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.72rem; font-weight:600; letter-spacing:2px;
+  text-transform:uppercase; color:var(--blue);
+  margin-bottom:2rem;
+}
+.hero-tag::before {
+  content:''; width:6px; height:6px; border-radius:50%;
+  background:var(--gold); animation:pulse 2s infinite;
+  flex-shrink:0;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+
+h1 {
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.8rem,5vw,4.2rem);
+  line-height:1.08; letter-spacing:-.03em;
+  margin-bottom:1.75rem; font-weight:900;
+}
+h1 .italic { font-style:italic; color:var(--blue); font-weight:300; }
+h1 .block { display:block; }
+
+.hero-lead {
+  font-size:1.1rem; color:var(--gray); line-height:1.85;
+  margin-bottom:2.5rem; font-weight:300;
+  max-width:520px;
+}
+
+.hero-action { display:flex; flex-direction:column; gap:1rem; }
+.btn-main {
+  display:inline-flex; align-items:center; justify-content:center; gap:.75rem;
+  background:var(--blue); color:#fff;
+  padding:1.1rem 2.75rem; border-radius:60px;
+  font-size:1rem; font-weight:600;
+  text-decoration:none; transition:.25s;
+  box-shadow:0 6px 24px rgba(27,75,138,.28);
+  align-self:flex-start;
+}
+.btn-main:hover { transform:translateY(-3px); box-shadow:0 12px 36px rgba(27,75,138,.38); background:var(--blue-l); }
+.btn-main-arrow { font-size:1.1rem; transition:transform .2s; }
+.btn-main:hover .btn-main-arrow { transform:translateX(4px); }
+
+.hero-sub-links { display:flex; align-items:center; gap:1.5rem; }
+.hero-sub-link { font-size:.85rem; color:var(--gray); text-decoration:none; display:flex; align-items:center; gap:.4rem; }
+.hero-sub-link:hover { color:var(--blue); }
+
+.hero-proof {
+  margin-top:2.5rem; padding-top:2rem;
+  border-top:1px solid var(--line);
+  display:flex; align-items:center; gap:1.25rem;
+}
+.proof-avatars { display:flex; }
+.proof-av {
+  width:32px; height:32px; border-radius:50%;
+  border:2px solid var(--cream); margin-right:-8px;
+  background:var(--blue); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.7rem; font-weight:700;
+}
+.proof-text { font-size:.82rem; color:var(--gray); line-height:1.5; }
+.proof-stars { color:var(--gold); font-size:.85rem; display:block; }
+
+/* HERO VISUAL */
+.hero-visual { position:relative; }
+.hero-img {
+  width:80%; max-width:340px; aspect-ratio:3/4;
+  border-radius:20px; overflow:hidden;
+  background:var(--ink);
+  position:relative;
+  box-shadow:0 24px 60px rgba(13,27,42,.18);
+  margin:0 auto;
+}
+.hero-img img { width:100%; height:100%; object-fit:cover; object-position:center 10%; image-rendering:auto; }
+
+.float-card {
+  position:absolute;
+  background:#fff; border-radius:16px;
+  padding:1rem 1.25rem;
+  box-shadow:0 12px 40px rgba(0,0,0,.12);
+  border:1px solid var(--line);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+.fc-1 { bottom:2.5rem; left:-3rem; animation-delay:0s; }
+.fc-num { font-family:'Fraunces',serif; font-size:2.2rem; font-weight:900; color:var(--blue); line-height:1; }
+.fc-label { font-size:.72rem; color:var(--gray); margin-top:.2rem; }
+
+.fc-2 { top:3rem; right:-2.5rem; background:var(--ink); border-color:transparent; animation-delay:1s; }
+.fc-2-label { font-size:.65rem; color:rgba(255,255,255,.5); letter-spacing:1px; text-transform:uppercase; }
+.fc-2-val { font-family:'Fraunces',serif; font-size:1.4rem; font-weight:600; color:#fff; margin-top:.2rem; }
+.fc-2-dot { width:8px; height:8px; border-radius:50%; background:#4ade80; display:inline-block; margin-right:4px; }
+
+.fc-3 {
+  top:50%; right:-3.5rem; transform:translateY(-50%);
+  background:var(--green-l); border-color:rgba(26,107,74,.15);
+  animation-delay:2s;
+}
+.fc-3-icon { font-size:1.25rem; margin-bottom:.25rem; }
+.fc-3-text { font-size:.78rem; color:var(--green); font-weight:600; max-width:120px; line-height:1.4; }
+
+/* DIVIDER */
+.divider { text-align:center; padding:1rem 0; }
+.divider-line {
+  display:flex; align-items:center; gap:1.5rem;
+  max-width:800px; margin:0 auto;
+  padding:0 3rem;
+}
+.divider-line::before,.divider-line::after {
+  content:''; flex:1; height:1px; background:var(--line);
+}
+.divider-text { font-size:.75rem; color:var(--gray); letter-spacing:2px; text-transform:uppercase; white-space:nowrap; }
+
+/* MOMENTS — болката */
+.moments { padding:6rem 3rem; }
+.moments-inner { max-width:1100px; margin:0 auto; }
+
+.moments-top {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:5rem; align-items:end; margin-bottom:4rem;
+}
+.eyebrow {
+  font-size:.72rem; font-weight:600; letter-spacing:2px;
+  text-transform:uppercase; color:var(--gold); margin-bottom:.75rem;
+}
+.moments-title {
+  font-family:'Fraunces',serif;
+  font-size:clamp(2rem,3.5vw,2.8rem);
+  font-weight:900; letter-spacing:-.03em; line-height:1.15;
+}
+.moments-sub {
+  font-size:.975rem; color:var(--gray); line-height:1.8; font-weight:300;
+}
+
+.moments-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem;
+}
+.moment-card {
+  background:var(--white); border-radius:20px;
+  padding:1.75rem; border:1px solid var(--line);
+  position:relative; overflow:hidden; transition:.3s;
+}
+.moment-card::before {
+  content:''; position:absolute; top:0; left:0; right:0;
+  height:3px; background:var(--line); transition:.3s;
+}
+.moment-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.07); }
+.moment-card:hover::before { background:var(--blue); }
+.moment-num {
+  font-family:'Fraunces',serif; font-size:3rem; font-weight:900;
+  color:var(--line); line-height:1; margin-bottom:1rem;
+}
+.moment-title { font-weight:600; font-size:.95rem; margin-bottom:.5rem; }
+.moment-desc { font-size:.85rem; color:var(--gray); line-height:1.65; }
+
+/* SOLUTION */
+.solution { padding:6rem 3rem; background:var(--ink); color:#fff; }
+.solution-inner { max-width:1100px; margin:0 auto; }
+.solution-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:6rem; align-items:center;
+}
+.solution .eyebrow { color:var(--gold); }
+.solution-title {
+  font-family:'Fraunces',serif;
+  font-size:clamp(2rem,3.5vw,3rem);
+  font-weight:900; letter-spacing:-.03em; line-height:1.1;
+  color:#fff; margin-bottom:1.5rem;
+}
+.solution-title em { color:var(--gold); font-style:italic; font-weight:300; }
+.solution-lead { color:rgba(255,255,255,.6); font-size:.975rem; line-height:1.8; font-weight:300; margin-bottom:2.5rem; }
+
+.solution-steps { display:flex; flex-direction:column; gap:1.5rem; }
+.step {
+  display:flex; gap:1.25rem; align-items:flex-start;
+  padding:1.25rem; border-radius:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  transition:.2s;
+}
+.step:hover { background:rgba(255,255,255,.07); }
+.step-icon {
+  width:40px; height:40px; border-radius:10px;
+  background:rgba(255,255,255,.08);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; flex-shrink:0;
+}
+.step-title { font-weight:600; font-size:.9rem; color:#fff; margin-bottom:.3rem; }
+.step-desc { font-size:.83rem; color:rgba(255,255,255,.5); line-height:1.6; }
+
+/* CHAT MOCKUP */
+.chat-wrap {
+  background:var(--cream); border-radius:24px;
+  overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.3);
+}
+.chat-hd {
+  background:var(--blue); padding:1rem 1.25rem;
+  display:flex; align-items:center; gap:.75rem;
+}
+.chat-av-wrap {
+  width:36px; height:36px; border-radius:10px;
+  background:rgba(255,255,255,.2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px;
+}
+.chat-name { color:#fff; font-weight:600; font-size:.9rem; }
+.chat-online { color:rgba(255,255,255,.65); font-size:.7rem; display:flex; align-items:center; gap:4px; }
+.chat-online::before { content:''; width:5px; height:5px; border-radius:50%; background:#4ade80; display:block; }
+.chat-msgs { padding:1.25rem; display:flex; flex-direction:column; gap:.75rem; }
+.cm { padding:.85rem 1.05rem; border-radius:14px; font-size:.83rem; line-height:1.65; max-width:86%; }
+.cm-b { background:#fff; border-radius:4px 14px 14px 14px; border:1px solid var(--line); }
+.cm-u { background:var(--blue); color:#fff; align-self:flex-end; border-radius:14px 4px 14px 14px; }
+.cm-g { background:var(--green-l); border:1px solid rgba(26,107,74,.15); color:var(--green); font-weight:600; border-radius:4px 14px 14px 14px; }
+.cm-label { font-size:.7rem; font-weight:700; margin-bottom:.3rem; opacity:.6; }
+.chat-chips { padding:.75rem 1.25rem 1.25rem; display:flex; flex-wrap:wrap; gap:.5rem; }
+.cchip {
+  background:#fff; border:1px solid var(--line);
+  border-radius:50px; padding:.4rem 1rem;
+  font-size:.75rem; color:var(--ink);
+}
+
+/* INCLUDES */
+.includes { padding:6rem 3rem; }
+.includes-inner { max-width:1100px; margin:0 auto; }
+.includes-grid { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:1.5rem; margin-top:3.5rem; }
+.inc {
+  border-radius:22px; padding:2.25rem;
+  border:1px solid var(--line); transition:.3s;
+  position:relative; overflow:hidden;
+}
+.inc:hover { transform:translateY(-4px); }
+.inc-main { background:var(--blue); border-color:transparent; color:#fff; }
+.inc-main .inc-title { color:#fff; }
+.inc-main .inc-desc { color:rgba(255,255,255,.65); }
+.inc-bonus { background:var(--white); }
+.inc-tag {
+  display:inline-block; font-size:.65rem; font-weight:700;
+  letter-spacing:1.5px; text-transform:uppercase;
+  padding:.3rem .85rem; border-radius:50px; margin-bottom:1.5rem;
+}
+.inc-main .inc-tag { background:rgba(255,255,255,.15); color:rgba(255,255,255,.8); }
+.inc-bonus .inc-tag { background:var(--gold-l,#F5ECD8); color:var(--gold); }
+.inc-icon { font-size:2.25rem; margin-bottom:1.25rem; display:block; }
+.inc-title {
+  font-family:'Fraunces',serif; font-size:1.3rem;
+  font-weight:700; margin-bottom:.6rem; letter-spacing:-.02em;
+}
+.inc-desc { font-size:.875rem; color:var(--gray); line-height:1.75; }
+
+/* RADOST */
+.radost { padding:6rem 3rem; background:var(--warm); }
+.radost-inner { max-width:1100px; margin:0 auto; }
+.radost-grid {
+  display:grid; grid-template-columns:1fr 1.2fr;
+  gap:5rem; align-items:center;
+}
+.radost-img {
+  position:relative; border-radius:20px; overflow:hidden;
+  aspect-ratio:4/5; background:var(--ink);
+  box-shadow:0 20px 50px rgba(13,27,42,.15);
+  max-width:380px;
+}
+.radost-img img { width:100%; height:100%; object-fit:cover; object-position:center 10%; image-rendering:auto; }
+.radost-quote {
+  position:absolute; bottom:1.75rem; left:1.75rem; right:1.75rem;
+  background:rgba(255,255,255,.96); backdrop-filter:blur(8px);
+  border-radius:14px; padding:1.1rem 1.25rem;
+  border-left:3px solid var(--gold);
+  font-family:'Fraunces',serif; font-size:.95rem;
+  color:var(--ink2,#2C3E50); line-height:1.6; font-style:italic;
+}
+.radost-text h2 {
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.8rem,3vw,2.6rem);
+  font-weight:900; letter-spacing:-.03em;
+  line-height:1.15; margin-bottom:1.5rem;
+}
+.radost-text p { color:var(--gray); line-height:1.9; margin-bottom:1rem; font-size:.975rem; font-weight:300; }
+.radost-stats { display:flex; gap:2.5rem; margin-top:2rem; padding-top:2rem; border-top:1px solid var(--line); }
+.rs-num { font-family:'Fraunces',serif; font-size:2.5rem; font-weight:900; color:var(--blue); line-height:1; }
+.rs-label { font-size:.78rem; color:var(--gray); margin-top:.25rem; }
+
+/* REVIEWS */
+.reviews { padding:6rem 3rem; }
+.reviews-inner { max-width:1100px; margin:0 auto; }
+.reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3.5rem; }
+.rev {
+  background:var(--white); border-radius:20px;
+  padding:2rem; border:1px solid var(--line); transition:.3s;
+}
+.rev:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.07); }
+.rev-stars { color:var(--gold); letter-spacing:2px; font-size:.9rem; margin-bottom:1.25rem; }
+.rev-text {
+  font-size:.9rem; color:var(--ink); line-height:1.85;
+  margin-bottom:1.5rem; font-style:italic;
+  font-family:'Fraunces',serif; font-weight:300;
+}
+.rev-author { display:flex; align-items:center; gap:.75rem; }
+.rev-av {
+  width:36px; height:36px; border-radius:50%;
+  background:var(--sky); color:var(--blue);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:.875rem;
+}
+.rev-name { font-weight:600; font-size:.875rem; }
+.rev-city { font-size:.75rem; color:var(--gray); }
+
+/* CTA */
+.cta { padding:8rem 3rem; text-align:center; position:relative; overflow:hidden; }
+.cta::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(27,75,138,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+.cta-inner { max-width:700px; margin:0 auto; position:relative; }
+.cta h2 {
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:900; letter-spacing:-.03em;
+  line-height:1.1; margin-bottom:1.25rem;
+}
+.cta h2 em { color:var(--blue); font-style:italic; font-weight:300; }
+.cta-sub { font-size:1.1rem; color:var(--gray); line-height:1.8; margin-bottom:2.5rem; font-weight:300; }
+
+.price-box { margin-bottom:2.5rem; }
+.price-old { font-size:.95rem; color:var(--gray); text-decoration:line-through; margin-bottom:.25rem; }
+.price-main {
+  font-family:'Fraunces',serif; font-size:5.5rem;
+  font-weight:900; color:var(--ink); line-height:1;
+  letter-spacing:-.04em;
+}
+.price-note { font-size:.8rem; color:var(--gray); margin-top:.5rem; }
+.price-badge {
+  display:inline-block; background:var(--gold); color:#fff;
+  font-size:.7rem; font-weight:700; letter-spacing:1px;
+  text-transform:uppercase; padding:.3rem .9rem;
+  border-radius:50px; margin-bottom:.75rem;
+}
+
+.btn-cta {
+  display:inline-flex; align-items:center; gap:.75rem;
+  background:var(--ink); color:#fff;
+  padding:1.15rem 3rem; border-radius:60px;
+  font-size:1.05rem; font-weight:600;
+  text-decoration:none; transition:.25s;
+  box-shadow:0 8px 30px rgba(13,27,42,.2);
+  margin-bottom:1.25rem;
+}
+.btn-cta:hover { background:var(--blue); transform:translateY(-3px); box-shadow:0 14px 40px rgba(27,75,138,.3); }
+.cta-guarantee { font-size:.78rem; color:var(--gray); line-height:1.8; }
+.cta-demo-link { display:block; margin-top:.75rem; font-size:.85rem; color:var(--blue); text-decoration:none; }
+.cta-demo-link:hover { text-decoration:underline; }
+
+/* FOOTER */
+footer {
+  background:var(--ink); padding:2.5rem 3rem;
+  display:flex; justify-content:space-between;
+  align-items:center; flex-wrap:wrap; gap:1rem;
+}
+.footer-logo { font-family:'Fraunces',serif; font-size:1.1rem; color:rgba(255,255,255,.8); }
+footer a { color:rgba(255,255,255,.4); font-size:.82rem; text-decoration:none; }
+footer a:hover { color:rgba(255,255,255,.8); }
+footer p { color:rgba(255,255,255,.3); font-size:.8rem; }
+
+@media(max-width:768px){
+  nav { padding:1rem 1.5rem; }
+  .nav-demo { display:none; }
+  .hero { grid-template-columns:1fr; padding:6rem 1.5rem 3rem; gap:2rem; }
+  .hero-visual { display:none; }
+  .moments,.solution,.includes,.radost,.reviews,.cta { padding:4rem 1.5rem; }
+  .moments-grid { grid-template-columns:1fr 1fr; }
+  .moments-top,.solution-grid,.radost-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .includes-grid { grid-template-columns:1fr; }
+  .reviews-grid { grid-template-columns:1fr; }
+  .radost-stats { gap:1.5rem; }
+  footer { padding:2rem 1.5rem; flex-direction:column; text-align:center; }
+}
 </style>
 </head>
 <body>
 
-<!-- ПАРОЛА ЕКРАН -->
-<div id="AS">
+<nav>
+  <div class="nav-logo">Брокер <span>в джоба</span></div>
+  <div class="nav-right">
+    <a href="https://brokervdjoba.online/demo.html" class="nav-demo">Пробвай безплатно →</a>
+    <a href="https://imotspace.gumroad.com/l/imotspace" class="nav-cta">Вземи за 14.90€</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
   <div>
-    <div class="li">&#127968;</div>
-    <div class="lt">Брокер в джоба</div>
-    <div class="ls">Твоят личен имотен асистент</div>
+    <div class="hero-tag">Единственият AI за купувачи на имоти в България</div>
+    <h1>
+      <span class="block">Купуваш имот.</span>
+      <span class="block">В 23:00 ще имаш</span>
+      <span class="block italic">въпрос.</span>
+      <span class="block">Кой ще отговори?</span>
+    </h1>
+    <p class="hero-lead">Брокер в джоба те придружава от първия оглед до ключа в ръката. Питаш — получаваш готов отговор. Без курсове. Без учене. Просто сигурност.</p>
+    <div class="hero-action">
+      <a href="https://imotspace.gumroad.com/l/imotspace" class="btn-main">
+        Вземи за 14.90€
+        <span class="btn-main-arrow">→</span>
+      </a>
+      <div class="hero-sub-links">
+        <a href="https://brokervdjoba.online/demo.html" class="hero-sub-link">▶ Пробвай демото безплатно</a>
+        <a href="https://brokervdjoba.online/app.html" class="hero-sub-link">🔐 Вече имам достъп</a>
+      </div>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-avatars">
+        <div class="proof-av">М</div>
+        <div class="proof-av">И</div>
+        <div class="proof-av">Г</div>
+        <div class="proof-av" style="background:var(--gold)">+</div>
+      </div>
+      <div class="proof-text">
+        <span class="proof-stars">★★★★★</span>
+        Използван от купувачи от Варна, София, Пловдив и Бургас
+      </div>
+    </div>
   </div>
-  <div class="cd">
-    <h2>Въведи парола за достъп</h2>
-    <p>Паролата е изпратена на имейла ти след покупката на пакета imot.space.</p>
-    <input type="password" id="akey" placeholder="Парола от имейла..." autocomplete="off">
-    <button class="ab" onclick="startApp()">Влез &#8594;</button>
+  <div class="hero-visual">
+    <div class="hero-img">
+      <img src="data:image/png;base64,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OiIrBwCIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgLd+iimD8TfUHcwADTif6K0hdU6LKHqqBk7m6yPLvJot+ZWtp1DNY3LZdppgCxotoACRzUDRn+0TX1DmtDh52/NZm0VQPanAG+XS3eoSCpLI6mUnfZrT3g3VZvd1l6q3LCqoV+zckb3Hr4xY97m/nb6LW8aAqIozp75pjPc9u75K3s1iZhrKunzEh93kcibaqxicp6moa02dG7rWdxB1+SzaurbSVturVMRi9y9jhaxLm/QhRFK58VdC9hLXNeCCFs2PhjJJXMtlkaJG+BGo9Vr+GRGorQ0AlzWl4t+zqflddmOfjLhyxq8Oo4FipdA1ku/eFuOFYg2UNu4XC5thzT1LbcNymaCrkieCHWPPgVW2iJ6W+O2nXqTCoMRgbISCfvBSlJsRh01idDzGi0jZvaMwNEchsV0DBMehmY0tkAPiuS8XqsKeNkph2weGwuD7udbg4krYKfBqSkYAy2iwKXHIsovIBbevtVjkDYy4ygDvUU9+0mpZOJztiiIaWiy5/tbtDBhtFNO5we8AlrBvcvm0W0stS50VF2hfV9tP5rne2b3twyolleXPLdSVtjp32jy5NV6cd27xSpxraSasrHlz7AWvo0cgpHY2iJDMwOeYhzu6MHT1N/RRUdOa3FpCbBrnn+60bz5BbTse7rZKyqDbNb2Y2/haG2A+iu7z449QoMdfLL5S6VJSf/ACtgNJAf/Ny9bIf3nO/ILO2khijbTRtaMssscdju3F30CsunLqCgDTb2emZGwAaZ3BrB83ErO27IZUUAB1jn4DiI5APoFW+O5WXl0ksQw0VfRphkjRmdHTjQjcWnguNijfT4rKQHZWVBY8ccpK73hMzavY40bW3swlluAFgfndaTVYEG47VuLc0ZcHDTiWg/ko4v47hnw2u4JEevfGG9hkbmu8tVwfpXmE2107husF6Mkpm0LMWqCCQ1oc0211Fz9F5e2xn9px+ol4F2ngrTgR8ZlU86flEIdERd7hEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERBXAwyTMYOJsu07MhlNs8xwOgjGXz/orkGEQulqhl0tbXxNl1Wq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" alt="Радост Кръстева — Брокер в джоба">
+    </div>
+    <div class="float-card fc-1">
+      <div class="fc-num">15+</div>
+      <div class="fc-label">години опит</div>
+    </div>
+    <div class="float-card fc-2">
+      <div class="fc-2-label">Асистентът</div>
+      <div class="fc-2-val"><span class="fc-2-dot"></span>онлайн</div>
+    </div>
+    <div class="float-card fc-3">
+      <div class="fc-3-icon">✓</div>
+      <div class="fc-3-text">Готов отговор за под минута</div>
+    </div>
   </div>
-  <p class="an">Нямаш парола? Вземи пакета на <a href="https://imotspace.gumroad.com/l/imotspace" target="_blank">imot.space</a></p>
 </div>
 
-<!-- ГЛАВЕН ЕКРАН -->
-<div id="AP">
-  <!-- СТРАНИЧНО МЕНЮ -->
-  <div id="SB">
-    <div class="sb-head">
-      <div class="sb-icon">&#127968;</div>
-      <div>
-        <div class="sb-title">Брокер в джоба</div>
-        <div class="sb-sub">Radost &middot; онлайн</div>
-      </div>
-    </div>
-    <div class="sb-items">
-      <div class="sb-section">Стъпки при покупка</div>
-      <button class="stab active" onclick="stabClick(this,'Помогни ми да разбера реалния си бюджет с всички разходи, данъци и такси.')">
-        <span class="stab-ic">&#128176;</span><span>Бюджет и разходи</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Намерих имот. Как да направя правилния оглед и какво точно да проверя?')">
-        <span class="stab-ic">&#128269;</span><span>Оглед на имот</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Как да проверя документите и тежестите преди да дам капаро?')">
-        <span class="stab-ic">&#128196;</span><span>Проверка на документи</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Обясни ми предварителния договор — какви клаузи трябват и как да се защитя?')">
-        <span class="stab-ic">&#9997;&#65039;</span><span>Предварителен договор</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Как работи нотариалният акт и какво да проверя в деня на сделката?')">
-        <span class="stab-ic">&#9878;&#65039;</span><span>Нотариален акт</span>
-      </button>
-      <div class="sb-section">Финансиране</div>
-      <button class="stab" onclick="stabClick(this,'Помогни ми с ипотеката — как да сравня банки, какви документи и каква вноска мога да си позволя?')">
-        <span class="stab-ic">&#127981;</span><span>Ипотека и банки</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Искам да преговарям за цената. Как да го направя правилно?')">
-        <span class="stab-ic">&#128176;</span><span>Преговори за цена</span>
-      </button>
-      <div class="sb-section">Подготовка</div>
-      <button class="stab" onclick="stabClick(this,'Подготви ме за срещата с брокера — какво да питам и как да не бъда манипулиран?')">
-        <span class="stab-ic">&#129309;</span><span>Среща с брокер</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Имам проблем с покупката. Кажи ми какво да правя.')">
-        <span class="stab-ic">&#128680;</span><span>Имам проблем</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Искам да анализираш текст от моя договор. Ще го paste-на тук.')">
-        <span class="stab-ic">&#128202;</span><span>Анализ на договор</span>
-      </button>
-      <div class="sb-section">Пазарни данни</div>
-      <button class="stab" onclick="stabClick(this,'Провери актуалните цени на имоти в квартала, който ме интересува.')">
-        <span class="stab-ic">&#128200;</span><span>Актуални цени</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Какви са актуалните лихви по ипотеки от различни банки?')">
-        <span class="stab-ic">&#128184;</span><span>Лихви по ипотеки</span>
-      </button>
-    </div>
-    <button class="sb-new" onclick="resetChat()">&#43; Нов разговор</button>
+<div class="divider">
+  <div class="divider-line">
+    <span class="divider-text">Как работи</span>
   </div>
-  <!-- ЧАТ ЗОНА -->
-  <div id="CZ">
-    <div class="hd">
-      <button class="mob-menu-btn" onclick="toggleMenu()">
-        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="currentColor"/><rect y="9" width="20" height="2" rx="1" fill="currentColor"/><rect y="15" width="20" height="2" rx="1" fill="currentColor"/></svg>
-      </button>
-      <div class="ha">&#127968;</div>
-      <div>
-        <div class="hn">Брокер в джоба</div>
-        <div class="hs"><span style="width:5px;height:5px;background:var(--a2);border-radius:50%;display:inline-block"></span>&nbsp;Radost &middot; онлайн</div>
-      </div>
-      <button class="hb" onclick="resetChat()">Нов разговор</button>
-    </div>
-    <div class="ct" id="chat"></div>
-    <div class="ip">
-      <textarea id="ui" placeholder="Напиши въпрос..." rows="1" onkeydown="hk(event)" oninput="ar(this)"></textarea>
-      <button class="sb" id="sb" onclick="snd()">
-        <svg viewBox="0 0 20 20"><path d="M2.5 10L17.5 2.5L12.5 10L17.5 17.5L2.5 10Z"/></svg>
-      </button>
-    </div>
-    <button class="fab-menu" onclick="toggleMenu()">&#9776;</button>
-    <div class="cbar">
-      <button onclick="openModal('credit')" style="flex:1;padding:.6rem .5rem;border-radius:9px;font-size:.75rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;background:var(--a2l);color:var(--a2);border:1px solid #B8DDD0;">&#128203; Кредитен консултант</button>
-    </div>
-  </div><!-- /CZ -->
+</div>
 
-  <!-- МОДАЛ -->
-  <div class="ovl" id="ovl">
-    <div class="mbox">
-      <div id="mform">
-        <h3 id="mtitle">Заяви консултация</h3>
-        <p id="mdesc">Оставете контакт и ще се свържем с вас скоро.</p>
-        <input type="text" id="mname" placeholder="Вашето име">
-        <input type="tel" id="mphone" placeholder="Телефон за връзка">
-        <input type="email" id="memail" placeholder="Имейл (незадължително)">
-        <select id="mtime">
-          <option value="">Кога да се свържем?</option>
-          <option>Сутринта (9:00-12:00)</option>
-          <option>Обяд (12:00-15:00)</option>
-          <option>Следобед (15:00-18:00)</option>
-          <option>По всяко време</option>
-        </select>
-        <div class="mrow">
-          <button class="mcn" onclick="closeModal()">Отказ</button>
-          <button class="mok" onclick="submitForm()">Изпрати</button>
+<!-- БОЛКАТА -->
+<section class="moments">
+  <div class="moments-inner">
+    <div class="moments-top">
+      <div>
+        <div class="eyebrow">Познато ли ти е?</div>
+        <h2 class="moments-title">Моментите,<br>в които нямаш<br>кого да питаш.</h2>
+      </div>
+      <p class="moments-sub">Не е въпрос на незнание. Въпрос е на това, че в критичния момент — няма кой да даде готовия отговор. Брокерът не вдига. Google дава общо. Адвокатът е скъп.</p>
+    </div>
+    <div class="moments-grid">
+      <div class="moment-card">
+        <div class="moment-num">01</div>
+        <div class="moment-title">В 23:00 преди подписването</div>
+        <div class="moment-desc">Четеш договора. Имаш въпрос. Никой не отговаря. Утре подписваш.</div>
+      </div>
+      <div class="moment-card">
+        <div class="moment-num">02</div>
+        <div class="moment-title">На огледа</div>
+        <div class="moment-desc">Не знаеш какво точно да гледаш. Излизаш с усещане, че си пропуснал нещо.</div>
+      </div>
+      <div class="moment-card">
+        <div class="moment-num">03</div>
+        <div class="moment-title">При банката</div>
+        <div class="moment-desc">Три оферти, три числа. Не знаеш коя е наистина по-добра. Избираш "на усет."</div>
+      </div>
+      <div class="moment-card">
+        <div class="moment-num">04</div>
+        <div class="moment-title">Когато брокерът бърза</div>
+        <div class="moment-desc">"Имам друг купувач." Паника. Не знаеш дали да вярваш. Не знаеш какво да кажеш.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- РЕШЕНИЕТО -->
+<section class="solution">
+  <div class="solution-inner">
+    <div class="solution-grid">
+      <div>
+        <div class="eyebrow">Решението</div>
+        <h2 class="solution-title">Готов отговор.<br>В точния <em>момент.</em></h2>
+        <p class="solution-lead">Не искаш курс по имоти. Искаш някой до теб, който знае отговора — точно когато ти трябва. Брокер в джоба е точно това.</p>
+        <div class="solution-steps">
+          <div class="step">
+            <div class="step-icon">🔍</div>
+            <div>
+              <div class="step-title">На огледа — чеклист в секунди</div>
+              <div class="step-desc">Питаш "дай ми чеклист за оглед" — получаваш 10 точки веднага. Без търсене, без четене.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-icon">📄</div>
+            <div>
+              <div class="step-title">При договора — анализ на момента</div>
+              <div class="step-desc">Копираш текста от договора, питаш "нормално ли е?" — получаваш директен отговор.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-icon">🏦</div>
+            <div>
+              <div class="step-title">При банката — ясна сравнителна картина</div>
+              <div class="step-desc">Казваш офертите — получаваш коя е по-изгодна и защо. Без жаргон.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-icon">🚨</div>
+            <div>
+              <div class="step-title">При проблем — конкретен план</div>
+              <div class="step-desc">Банков отказ, скрити тежести, натиск от брокер — знаеш точно какво да направиш.</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="msucc" class="msucc" style="display:none;">
-        <div style="font-size:2rem;margin-bottom:.5rem;">&#10003;</div>
-        <p id="msucctxt" style="font-size:.875rem;color:var(--tx2);">Заявката е изпратена!</p>
-        <div class="mrow" style="margin-top:.75rem;">
-          <button class="mok" onclick="closeModal()">Затвори</button>
+      <div class="chat-wrap">
+        <div class="chat-hd">
+          <div class="chat-av-wrap">🏠</div>
+          <div>
+            <div class="chat-name">Брокер в джоба</div>
+            <div class="chat-online">Radost · онлайн сега</div>
+          </div>
+        </div>
+        <div class="chat-msgs">
+          <div class="cm cm-u">В договора пише: "При отказ на продавача задатъкът се връща." Нормално ли е?</div>
+          <div class="cm cm-b">
+            <div class="cm-label">РАДОСТ</div>
+            Не съвсем. По закон (чл.93 ЗЗД) при отказ на продавача той дължи ДВОЙНИЯ задатък — не само да го върне. Тази клауза те ощетява.
+          </div>
+          <div class="cm cm-g">✓ Поискай да добавят: "При отказ на продавача той дължи двоен размер на задатъка." Преди да подпишеш.</div>
+          <div class="cm cm-u">Как да го кажа на брокера?</div>
+          <div class="cm cm-b">
+            <div class="cm-label">РАДОСТ</div>
+            Кажи спокойно: "Искам клаузата за задатъка да отразява чл.93 ЗЗД — двоен размер при отказ на продавача." Стандартно е. Ако откажат — е сигнал.
+          </div>
+        </div>
+        <div class="chat-chips">
+          <div class="cchip">Какво още да проверя?</div>
+          <div class="cchip">Покажи ми пълния чеклист</div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-</div><!-- /AP -->
+<!-- ВКЛЮЧВА -->
+<section class="includes">
+  <div class="includes-inner">
+    <div class="eyebrow">Какво получаваш</div>
+    <h2 class="moments-title" style="font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:900;letter-spacing:-.03em;line-height:1.15;margin-bottom:.5rem;">Едно плащане.<br>Всичко включено.</h2>
+    <div class="includes-grid">
+      <div class="inc inc-main">
+        <span class="inc-tag">Основно</span>
+        <span class="inc-icon">🤖</span>
+        <h3 class="inc-title">AI асистент<br>Брокер в джоба</h3>
+        <p class="inc-desc">Отговаря на въпросите ти в реално време. На огледа, при договора, при банката, в 23:00. Без инсталация — отваряш от телефона и питаш.</p>
+      </div>
+      <div class="inc inc-bonus">
+        <span class="inc-tag">Бонус</span>
+        <span class="inc-icon">📖</span>
+        <h3 class="inc-title">Наръчник<br>101 стр.</h3>
+        <p class="inc-desc">„Прекият път към имота" — с реални истории, конкретни числа и всяка стъпка обяснена на разбираем език.</p>
+      </div>
+      <div class="inc inc-bonus">
+        <span class="inc-tag">Бонус</span>
+        <span class="inc-icon">📋</span>
+        <h3 class="inc-title">5 готови<br>чеклиста</h3>
+        <p class="inc-desc">За оглед, документи, предварителен договор, ипотека и нотариален акт. Отваряш, следваш, готово.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<script>
+<!-- ЗА РАДОСТ -->
+<section class="radost">
+  <div class="radost-inner">
+    <div class="radost-grid">
+      <div class="radost-img">
+        <img src="data:image/png;base64,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OiIrBwCIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgLd+iimD8TfUHcwADTif6K0hdU6LKHqqBk7m6yPLvJot+ZWtp1DNY3LZdppgCxotoACRzUDRn+0TX1DmtDh52/NZm0VQPanAG+XS3eoSCpLI6mUnfZrT3g3VZvd1l6q3LCqoV+zckb3Hr4xY97m/nb6LW8aAqIozp75pjPc9u75K3s1iZhrKunzEh93kcibaqxicp6moa02dG7rWdxB1+SzaurbSVturVMRi9y9jhaxLm/QhRFK58VdC9hLXNeCCFs2PhjJJXMtlkaJG+BGo9Vr+GRGorQ0AlzWl4t+zqflddmOfjLhyxq8Oo4FipdA1ku/eFuOFYg2UNu4XC5thzT1LbcNymaCrkieCHWPPgVW2iJ6W+O2nXqTCoMRgbISCfvBSlJsRh01idDzGi0jZvaMwNEchsV0DBMehmY0tkAPiuS8XqsKeNkph2weGwuD7udbg4krYKfBqSkYAy2iwKXHIsovIBbevtVjkDYy4ygDvUU9+0mpZOJztiiIaWiy5/tbtDBhtFNO5we8AlrBvcvm0W0stS50VF2hfV9tP5rne2b3twyolleXPLdSVtjp32jy5NV6cd27xSpxraSasrHlz7AWvo0cgpHY2iJDMwOeYhzu6MHT1N/RRUdOa3FpCbBrnn+60bz5BbTse7rZKyqDbNb2Y2/haG2A+iu7z449QoMdfLL5S6VJSf/ACtgNJAf/Ny9bIf3nO/ILO2khijbTRtaMssscdju3F30CsunLqCgDTb2emZGwAaZ3BrB83ErO27IZUUAB1jn4DiI5APoFW+O5WXl0ksQw0VfRphkjRmdHTjQjcWnguNijfT4rKQHZWVBY8ccpK73hMzavY40bW3swlluAFgfndaTVYEG47VuLc0ZcHDTiWg/ko4v47hnw2u4JEevfGG9hkbmu8tVwfpXmE2107husF6Mkpm0LMWqCCQ1oc0211Fz9F5e2xn9px+ol4F2ngrTgR8ZlU86flEIdERd7hEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERBXAwyTMYOJsu07MhlNs8xwOgjGXz/orkGEQulqhl0tbXxNl1Wq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" alt="Радост Кръстева">
+        <div class="radost-quote">
+          „Хората не губят пари от лош брокер.<br>Губят ги от незнание — в точния момент."
+        </div>
+      </div>
+      <div class="radost-text">
+        <div class="eyebrow">Зад Брокер в джоба</div>
+        <h2>Аз съм Радост.<br>Брокер от 2010 г.</h2>
+        <p>За 15 години разговарях с хиляди купувачи. Видях едно и също: страх, объркване и грешки, които можеха да се избегнат с едно правилно изречение в точния момент.</p>
+        <p>Затова създадох Брокер в джоба. Не за да те правя брокер. А за да имаш готов отговор точно когато ти трябва — без да се налага да учиш, да четеш, да се подготвяш.</p>
+        <p>Просто питаш. Получаваш отговор. Действаш уверено.</p>
+        <div class="radost-stats">
+          <div><div class="rs-num">15+</div><div class="rs-label">години опит</div></div>
+          <div><div class="rs-num">1000+</div><div class="rs-label">помогнати купувачи</div></div>
+          <div><div class="rs-num">24/7</div><div class="rs-label">на линия</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-function stabClick(el, msg) {
-  document.querySelectorAll('.stab').forEach(function(t){t.classList.remove('active');});
-  el.classList.add('active');
-  document.getElementById('SB').classList.remove('open');
-  document.getElementById('ui').value = msg;
-  snd();
-  document.getElementById('ui').value = '';
-}
-function toggleMenu() {
-  document.getElementById('SB').classList.toggle('open');
-}
-document.addEventListener('click', function(e) {
-  var sb = document.getElementById('SB');
-  if (sb && sb.classList.contains('open')) {
-    if (!sb.contains(e.target) && !e.target.closest('.mob-menu-btn') && !e.target.closest('.fab-menu')) {
-      sb.classList.remove('open');
-    }
-  }
-});
+<!-- ОТЗИВИ -->
+<section class="reviews">
+  <div class="reviews-inner">
+    <div class="eyebrow">Отзиви</div>
+    <h2 class="moments-title" style="font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:900;letter-spacing:-.03em;line-height:1.15;margin-bottom:0;">Реални хора.<br>Реални моменти.</h2>
+    <div class="reviews-grid">
+      <div class="rev">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">„Тествах го, отидох на огледа с чеклиста в телефона. Питах точните въпроси :) И продавачът, и брокерът се изненадаха."</p>
+        <div class="rev-author">
+          <div class="rev-av">М</div>
+          <div><div class="rev-name">Мария С.</div><div class="rev-city">Варна · купувач за първи път</div></div>
+        </div>
+      </div>
+      <div class="rev">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">„14.90€ срещу потенциална грешка от 10 000€. Изборът беше лесен. Все още търся имот, но ми е някак по-спокойно и забавно! Определено не съжалявам за това решение."</p>
+        <div class="rev-author">
+          <div class="rev-av">Г</div>
+          <div><div class="rev-name">Георги Н.</div><div class="rev-city">Пловдив · активно търси</div></div>
+        </div>
+      </div>
+      <div class="rev">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">„В 23:00 питах за клауза в договора. За 3 минути знаех какво да поискам. Поисках го на следващия ден. Продавачът се съгласи без много въпроси."</p>
+        <div class="rev-author">
+          <div class="rev-av">И</div>
+          <div><div class="rev-name">Иван П.</div><div class="rev-city">София · вече купил</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-var K = '', busy = false, step = 0, hist = [], prof = {o:null,g:null,f:null}, mtype = 'broker';
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="eyebrow">Започни сега</div>
+    <h2>Купуваш имот.<br>В 23:00 ще имаш въпрос.<br><em>Бъди готов.</em></h2>
+    <p class="cta-sub">Брокер в джоба е до теб на всяка стъпка. Питаш — получаваш готов отговор. Точно когато ти трябва.</p>
+    <div class="price-box">
+      <div class="price-badge">Ранна цена</div>
+      <div class="price-old">Редовна цена: 24.90€</div>
+      <div class="price-main">14.90€</div>
+      <div class="price-note">Еднократно плащане · Незабавен достъп · Без инсталация · Без абонамент</div>
+    </div>
+    <a href="https://imotspace.gumroad.com/l/imotspace" class="btn-cta">
+      Вземи Брокер в джоба →
+    </a>
+    <p class="cta-guarantee">
+      30-дневна гаранция за връщане на парите<br>
+      Ако не си доволен — връщаме сумата без въпроси.
+    </p>
+    <a href="https://brokervdjoba.online/demo.html" class="cta-demo-link">или пробвай безплатното демо първо →</a>
+  </div>
+</section>
 
-var SYS = [
-  'Ти си Radost, AI асистент на приложението Брокер в джоба. МИСИЯ: Да научиш купувачите как да купуват имот безопасно, успешно и без грешки. Водиш ги стъпка по стъпка от първата идея до ключа в ръката. Покриваш Варна, София, Пловдив и Бургас. Аксаково само при директен въпрос.',
-  'ХАРАКТЕР: Топъл, проактивен, компетентен. Говориш като опитен приятел-брокер на безупречен книжовен български. Обръщаш се на ти. Никога не питай дали потребителят купува за първи път. ЗАБРАНЕНИ ДУМИ И ИЗРАЗИ: Ево, мишкаш, знаам, Kako, наличност(→в брой), серьозна(→сериозна), Готин ли си(→Готов ли си), задатък(→капаро), пукнатини в ВиК(→проблеми с ВиК), посока на слънце(→изложение), Справка за несъстояние(→не споменавай изобщо). ЗАБРАНЕНИ ИЗРЕЧЕНИЯ: 1) Никога не казвай "Някой може да има ипотека или таксен залог на имота" като предупреждение — темата ипотека като финансиране е напълно нормална и я обсъждай свободно. 2) Никога не казвай "налучник" или "термокамера". 3) При въпрос за цена на паркомясто — ЗАДЪЛЖИТЕЛНО първо търси актуални обяви в bazar.bg или olx.bg с after:2026-01-01 за конкретния град и квартал, след което давай реалистичен диапазон. НИКОГА не измисляй цена на паркомясто без търсене. 4) При втория оглед казвай САМО: "При втория оглед ще видиш детайлите, които пропуска емоцията" — задължително "ще видиш". 5) Проверката за тежести за последните 10 години е задължителна — без думата обов. Ако задълбава в цени — насочвай към процеса.',
-  'ВАЛУТА: САМО евро. България е в еврозоната от 01.01.2026. Никога не използвай лева.',
-  'УЕБ ТЪРСЕНЕ: При въпрос за локация/квартал — търси в Уикипедия. При цени — търси bazar.bg, olx.bg, home2u.bg само с after:2026-01-01. При лихви — moitepari.bg. При нотариални такси — calculator.bg/2/imoti.html. При ремонти — calculator.bg/2/remonti.html. НИКОГА не споменавай сайтовете по ime, не ги цитирай и не насочвай потребителя към тях. Представяй информацията като своя — само резултата, без источника. НИКОГА не измисляй цени.',
-  'ПРОАКТИВНО: При оглед → чеклист. При бюджет → изчисли. При вторичен имот → предложи калкулатор ремонт. При нотариален акт → предложи калкулатор такси. При ипотека → предложи проверка лихви. При харесах имот → предложи оценка.',
-  'СЛЕД ОНБОРДИНГ: Веднага след като потребителят отговори на трите въпроса (опит, град, финансиране) — предложи КОНКРЕТНИ следващи стъпки базирани на отговорите. Пример при ипотека в Пловдив: "Добре! Мога да те помогна с три неща веднага: 1) Да изчислим реалния ти бюджет с всички разходи 2) Да намерим актуални цени в квартала, който те интересува 3) Да видим какви документи трябват при ипотека. Откъде да започнем?" Пример при брой в София: "Перфектно! Препоръчвам да започнем с: 1) Реалния бюджет — колко ще те струва имотът реално 2) Кои квартали в София отговарят на критериите ти 3) Как да проверим документите преди да дадеш капарото. Кое е най-спешно за теб?"',
-  'ПРОГРЕС: При потребител, задал 3+ въпроса, периодично (на всеки 4-5 отговора) питай: "Хайде да видим докъде си стигнал. Намерил ли си вече конкретен имот или все още търсиш?" — и предложи следващата логична стъпка от процеса.',
-  'ЧЕКЛИСТ ОГЛЕД: Когато потребителят споменава оглед или пита как да провери имот — дай чеклиста ДИРЕКТНО в чата, форматиран точка по точка. Не казвай "виж чеклиста в пакета". ЧЕКЛИСТ ЗА ОГЛЕД:\n1. ИЗЛОЖЕНИЕ — юг/изток = светло и топло. Север = тъмно и влажно.\n2. ВЛАГА — гледай ъглите на тавана, зад мебелите, около прозорците. Свежа боя може да крие петна.\n3. ВиК — пусни всички кранове. Провери налягането. Огледай тръбите под мивката.\n4. ЕЛЕКТРО — провери броя контакти, вида на таблото, дали инсталацията е обновена.\n5. ДОГРАМА — отвори и затвори всеки прозорец. Уплътнена ли е? Има ли конденз?\n6. ПАРКИНГ — посети в 20:00. Колко места има реално?\n7. АСАНСЬОР — работи ли? Кога е последната проверка?\n8. СЪСЕДИ — звъни на два апартамента. Говори с хора в асансьора.\n9. ШУМОИЗОЛАЦИЯ — постой 5 минути в тишина. Чуваш ли съседи, улица?\n10. СМЕТКИ — поискай последните 3 фактури за ток и парно.\nПри ПАНЕЛ: провери за пукнатини по носещите стени, санирана ли е сградата.\nПриНОВО СТРОИТЕЛСТВО: поискай Акт 16. Без него — незаконно за живеене.\nПри КЪЩА: провери покрива, фундамента, септичната яма, двора.',
-  'КАЛКУЛАТОР: Реална цена = бюджет*0.93. Ипотека 30г: 2.5%=цена*0.00395, 3%=цена*0.00422, 3.5%=цена*0.00449. Минимална квадратура 25 кв.м. Под 50 000 евро няма жилищен апартамент в Варна.',
-  'ЦЕНИ: НЕ цитирай вградени цени. Винаги търси bazar.bg, olx.bg, home2u.bg с after:2026-01-01.',
-  'ВАРНА КВАРТАЛИ: СЕМЕЙНИ: Владиславово, Кайсиева градина, Възраждане, Младост, Пчелина, Трошево, Левски, Цветен квартал, Колхозен пазар, Погреби, Христо Ботев, ХЕИ, Стадион Спартак, Виница, Аспарухово. ЦЕНТРАЛНИ: Гръцка махала(НАЙ-СКЪПО!), Винс-Червен площад, Фестивален комплекс, Спортна зала, Окр.болница-Генерали, Чаталджа, Център, Централна поща, Жп гара, Операта, Автогара, Зимно/Лятно кино Тракия, Завод Дружба. МОРСКИ: Чайка, Бриз, Аспарухово, Галата, Зеленика, Долна/Горна Трака, Евксиноград, К.К.Константин и Елена, Победа/Конфуто/Гранд Мол. КУРОРТНИ: Златни пясъци, Слънчев ден, Ален мак.',
-  'ВАРНА ГЕОГРАФИЈА: Виница е СЕВЕРОИЗТОК, ~2км от К.К.Константин и Елена. НЕ е южно, НЕ е до магистрала. Аспарухово е на юг. Чайка и Бриз са северно. Ако не си сигурна — НЕ посочвай.',
-  'СОФИЯ: НЯМА МОРЕ. Метрото е ключов фактор.',
-  'КАПАРО: 10%, само по банков път — НИКОГА в брой. Клауза за връщане при банков отказ. НЯМА 48ч за размисъл.',
-  'ДЕПОЗИТ ЗА ПРЕГОВОРИ: мин. 1000 евро към агенцията с договор. НЕ е капаро към продавача.',
-  'ПРЕДВАРИТЕЛЕН ДОГОВОР: 1)ЕГН 2)Идентификатор в кадастъра 3)Документи за собственост и тежести ПРЕДИ подписване 4)Цена с цифри И думи 5)Капаро 10% по банков път 6)Точна дата за нотариален акт 7)Клауза за връщане при отказ или неизрядност 8)Неустойки 9)Опис обзавеждане 10)Санкции. ДОКУМЕНТИ ПРИ ПРЕДВАРИТЕЛЕН ДОГОВОР: Нотариален акт — поискай копие и оригинал за справка. Данъчна оценка — желателна, но не задължителна. Скица от Агенция по Кадастър — желателна, но не задължителна; при липса може онлайн справка от електронния кадастър. Справка за тежести — може онлайн от Агенция по вписванията или при нотариус, за последните 10 години. ДОКУМЕНТИ ПРИ НОТАРИАЛЕН АКТ: Всички документи задължително са официални и оригинални — нотариален акт оригинал, данъчна оценка оригинал, скица оригинал, удостоверение за тежести оригинал от Агенция по вписванията за последните 10 години.',
-  'НОТАРИАЛЕН АКТ — ВАЖНИ ПРАВИЛА: 1) Сделката се насрочва ПРЕДИ 14:00 — защото в 14:00 се носят актовете за вписване в Агенция по вписванията. Ако сделката е след 14:00, вписването се отлага за следващия работен ден. 2) При подписване на нотариален акт НЕ са необходими свидетели — никога не споменавай свидетели при нотариален акт, това е грешно. 3) В деня на сделката купувачът НЕ получава никакъв документ. Нотариусът задържа акта и го занася за вписване. 4) На следващия работен ден купувачът получава оригиналния нотариален акт заедно с придружаващите документи за плащане.',
-  'НОТАРИАЛЕН АКТ: ПРЕДИ 14:00 — за да може актът да бъде занесен за вписване в Агенция по вписванията в същия ден. Вписването се извършва в 14:00. Ако сделката е след 14:00 вписването се отлага за следващия работен ден. Клауза Евикция — споменавай я САМО при нотариален акт, никога при предварителен договор или другаде. Плащане по банков път. Нотариусът по район на имота.',
-  'ДОКУМЕНТИ НА КУПУВАЧА: При покупка от физическо лице се изискват САМО: 1)Валиден документ за самоличност — паспорт или лична карта 2)Документ за доход — последен фиш или справка от работодател (за банката). ПРИ ИПОТЕКА допълнително: 3)Банкови извлечения — последни 3 месеца 4)Данъчна декларация — последната (само ако си самоосигуряващо се лице) 5)Трудов договор — копие. НА НОТАРИАЛНИЯ АКТ: само оригинален документ за самоличност — ЕГН се вижда от него, НЕ го споменавай отделно. НИКОГА не споменавай Справка за несъстояние — тя НЕ е изискуем документ при покупка на имот от физическо лице. СЪВЕТ СЛЕД ДОКУМЕНТИ: Предлагай предварително банково одобрение — дава сигурност и убеждение с продавача. После питай: Имаш ли вече оглед на имот или все още търсиш?',
-  'ПРОЦЕС: 1)Бюджет 2)Предв.одобрение ПРЕДИ капаро! 3)Търсене в имотни портали 4)Оглед 2 пъти с технически експерт 5)Документи 6)Предв.договор с адвокат 7)Нотариален акт 8)Деклариране Общината. СРОКОВЕ: 2-3 седмици.',
-  'РАЗХОДИ: данък 2-3%, нотариални ~2%, АВп 0.1%, адвокат 300-800 евро, комисионна ~3%. Общо 5-8%.',
-  'КОМБИНИРАНЕ КРЕДИТИ: При липса самоучастие — потребителски + ипотечен кредит. Независим кредитен консултант е безплатен за купувача.',
-  'ПРЕГОВОРИ: Реалното намаление е 3-5% от обявената цена. В редки случаи може да достигне повече от 5%, но не разчитай на повече от 10%. Аргументи: ремонт, лош етаж, без асансьор/паркинг, само север, дълго на пазара. Не показвай ентусиазъм.',
-  'ОЦЕНКА НА ИМОТ: При харесах имот — събери: 1)Квартал 2)Площ 3)Стаи 4)Цена 5)Изложение 6)Етаж/общо 7)Асансьор 8)Състояние 9)Паркомясто 10)Изба/таван 11)Строителство. Търси актуални обяви в имотни портали after:2026-01-01 без да споменаваш сайтовете по ime. Дай оценка: ИЗГОДНА/СПРАВЕДЛИВА/НАДЦЕНЕНА.',
-  'ДИСКЛЕЙМЕР: Посочените оферти и цени се основават на актуални пазарни обяви. Не се подвеждай по цена на квадрат! Регресия на цените — по-малка квадратура = по-висока цена на кв.м. СЛЕД СРАВНЕНИЕ: Запомни: при еднотипни обяви цената се различава според: строителство, изложение, етаж, състояние, асансьор. Понякога дори една улица прави разлика! Винаги сравнявай имоти, които си видял на живо!',
-  'НЕ ПРАВИШ: правни съвети, препоръки на банки/брокери по ime, теми извън имоти, лева.',
-  'ГРАМАТИКА: във пред думи започващи с в/ф (във Варна, във Фонда). в пред всички останали (в София, в Бургас, в Пловдив). със пред думи започващи с с/з (със самоучастие, със капаро). с пред всички останали (с ипотека, с банката). Винаги запетая пред: че, който, която, което.',
-  'ФОРМАТИРАНЕ: Кратко при прости въпроси. При сложни — структурирано. ЗАДЪЛЖИТЕЛНО: След всеки отговор предлагай 2-3 конкретни следващи стъпки или въпроса — формулирани като предложения, не като въпроси. Примери: "Искаш ли да проверим тежестите на имота?", "Да изчислим реалната месечна вноска?", "Да видим какви клаузи трябват в договора?". Тези предложения трябва да са логично свързани с текущия разговор — не общи.',
-  'БЮДЖЕТ ВЪПРОСИ ФОРМАТ: При питане за бюджет задавай точно тези въпроси: 1) Колко евро можеш да вложиш — с ипотека или изцяло в брой и колко е сумата? (Пример: Имам 30 000 евро и ще взема ипотека / Разполагам с 80 000 евро в брой) 2) Ако ипотека — какво самоучастие имаш? (20%, 30% или 40%) 3) При ипотека какъв период? (20, 25 или 30 години) След отговор изчислявай: реален бюджет за имот, месечен размер на кредита, всички разходи (данъци, такси, комисионна), минимален и препоръчан диапазон на цена. Завършвай с: Готов ли си? — НИКОГА Готин ли си?',
-  '15-ТЕ ГРЕШКИ ПРИ ПОКУПКА — използвай при подходящ въпрос: ПРЕДИ ДОГОВОРА: 1)Без бюджетна реалност — реалната цена е обявена×1.07-1.08. 2)Без предварително банково одобрение — може да загубиш капарото при отказ. 3)Капаро в брой — без банков път нямаш доказателство. 4)Без проверка на собственост и тежести — проверката е при нотариус или онлайн в АВп, отнема минути, спестява хиляди. 5)Един оглед — трябват поне 2, един емоционален, един с технически експерт. ПРИ ОГЛЕД: 6)Без проверка на влага, проблеми с ВиК и ЕЛ, дограма. При панел — санирана ли е. 7)Без чеклист — изложение, шум, съседи, асансьор, паркинг. 8)Пренебрежение към паркинга — в Варна и София е критично. ПРИ ДОГОВАРЯНЕ: 9)Без адвокат при предв. договор. 10)Капаро без писмена клауза за връщане при банков отказ. 11)Без проверка на нотариален акт, скица и тежести ПРЕДИ подписване. 12)Цената само с цифри, без думи. С ИПОТЕКА: 13)Първото банково предложение без сравнение — разликата 2.5% vs 3.5% е ~150 евро/месец при 100 000 евро. 14)Без резерв — предвиждай мин. 5-8% над цената за разходи и ремонти. ВАЖНО: Справка за несъстояние НЕ е задължителен документ — никога не я споменавай.',
-  'ВЪПРОСИ ЗА БЮДЖЕТ: Питай "Колко евро можеш да вложиш — с ипотека или изцяло в брой и колко е сумата?" НИКОГА не пиши "само в брой". При ипотека питай за самоучастието — НИКОГА не използвай израза "колко пари имаш в джоба" или подобни разговорни изрази. ЗАБРАНЕНИ ИЗРАЗИ: "колко пари имаш в джоба", "в джеба", "Готов ли си" — вместо това използвай "Готов ли си?". Тонът е приятелски, но професионален — без жаргон.',
-  'ВЪПРОСИ ЗА ЛОКАЦИЯ: Питай за конкретен квартал само в избрания от потребителя град. НИКОГА не предлагай друг град като алтернатива — ако е избран Пловдив, питай само за квартали в Пловдив. Опцията друг град категорично отпада.',
-  'ВЪПРОСИ ЗА ТИП ИМОТ: При апартамент — питай колко стаи. При къща — питай дали с двор. Питай дали гараж/паркомясто са важни.',
-  'ВЪПРОСИ ЗА СЪСТОЯНИЕ: Предлагай три варианта: ново строителство (готово за нанасяне?), вторичен имот (готов или с ремонт?), нуждае се от ремонт (колко средства може да отдели?). При ремонт — предложи калкулатор за ремонт.',
-  'ПРАВНА БАЗА — ЗЗД: Чл.18 ЗЗД: Договорите за прехвърляне на собственост върху недвижими имоти трябва да бъдат извършени с нотариален акт. Чл.19 ЗЗД: Предварителният договор трябва да е в писмена форма и да съдържа съществените условия на окончателния. Всяка страна може да предяви иск за сключване на окончателен договор — в такъв случай договорът се счита сключен от влизането на решението в сила. Чл.87 ЗЗД: При неизпълнение на двустранен договор изправната страна може да го развали, като даде подходящ срок за изпълнение с предупреждение, че ще счита договора за развален. Разваляне не се допуска когато неизпълнената част е незначителна. Чл.88 ЗЗД: Развалянето има обратно действие. Кредиторът има право на обезщетение за вредите от неизпълнението. Чл.93 ЗЗД — Капаро: Ако страната, дала капарото, не изпълни задължението си, другата страна може да задържи капарото. Ако не изпълни страната, получила капарото, тя дължи връщане на капарото в двоен размер.',
-  'ПРАВНА БАЗА — ЗС: Чл.77 ЗС: Правото на собственост се придобива чрез правна сделка, по давност или по други начини, определени в закона. Чл.79 ЗС: Правото на собственост по давност върху недвижим имот се придобива с непрекъснато владение 10 години (недобросъвестно) или 5 години (добросъвестно). Чл.108 ЗС: Собственикът може да иска своята вещ от всяко лице, което я владее или държи без правно основание — ревандикационен иск. ВАЖНО ЗА КУПУВАЧА: При покупка от несобственик — ако купувачът е добросъвестен, придобива собствеността след 5 години владение. Затова проверката на собствеността ПРЕДИ сделката е критична.',
-  'ПРАВНА БАЗА — КАПАРО НА ПРАКТИКА: При предварителен договор капарото (капарото) е 10% от цената. Ако КУПУВАЧЪТ се откаже — губи капарото. Ако ПРОДАВАЧЪТ се откаже — дължи двойния капаро. Задължително трябва да е записано изрично в договора — без текст, без защита. Плащане САМО по банков път — никога в брой. ДИСКЛЕЙМЕР: Радост дава правна информация, не правни съвети. При сложни казуси насочва към адвокат.',
-  'ПРАВНА БАЗА — ЗУТ: АКТ 14 (чл.181 ЗУТ) — Акт за приемане на конструкцията при груб строеж. Имотът може да се продава, НО не е годен за обитаване. АКТ 15 (чл.176 ЗУТ) — Констативен акт за завършване на строежа. Предава строежа от строителя на предприемача. Сградата е завършена, но все още не е законно годна за ползване — нанасянето е незаконно! АКТ 16 (чл.177 ЗУТ) — Финалният документ. За жилищни сгради (4-5 кат.) се издава Удостоверение за въвеждане в експлоатация от Главния архитект на общината. Само след Акт 16 имотът е законно годен за обитаване. Чл.178 ЗУТ: Забранено е ползването на строежи преди въвеждане в експлоатация. ВАЖНО: Имот без Акт 16 не може да се финансира с ипотека. При покупка на Акт 14 или 15 — задължително вписвай краен срок за Акт 16 в предв. договор с неустойка при неспазване.',
-  'ПРАВНА БАЗА — ЗКИР: Кадастралният идентификатор е уникалният номер на всеки имот — ЕГН-то на имота. Кадастрална скица/схема — официален документ от АГКК (Агенция по геодезия, картография и кадастър). Показва границите, площта, идентификатора и собственика. ВАЛИДНОСТ: Скицата НЕ е ограничена до 6 месеца. Тя остава валидна, докато не се променят характеристиките на имота — площта, границите спрямо съседни парцели, предназначението (напр. от жилищна на търговска зона) или наличието на нови постройки и сгради. НИКОГА не казвай че скицата е валидна 6 месеца — това е остаряла информация. При предв. договор — достатъчна е електронна справка от kais.cadastre.bg (безплатна). При нотариален акт — задължителна официална скица/схема от АГКК. Имотен регистър (Агенция по вписванията) — съдържа тежести, ипотеки и прехвърляния. Проверка за тежести онлайн: portal.registryagency.bg — за последните 10 години. Таксата е 0.51€ (1 лв.) на справка.',
-  'СЕРТИФИКАТ ЗА ЕНЕРГИЙНА ЕФЕКТИВНОСТ: НЕ е задължителен документ при покупка на имот в България. Все още много малко сгради имат такъв сертификат. НИКОГА не го включвай в списъка с задължителни документи. Ако потребителят пита — обясни: желателен е, но не задължителен по закон.',
-  'ЧЕКЛИСТИ В ЧАТА: Давай чеклистите ДИРЕКТНО в чата при споменаване на съответната тема. НИКОГА не казвай виж чеклиста в пакета. ЧЕКЛИСТ ПРЕДВАРИТЕЛЕН ДОГОВОР: 1)Пълни данни на страните 2)Кадастрален идентификатор 3)Цена с цифри И думи 4)Капаро 10% само по банков път 5)Клауза при банков отказ 6)Клауза при открити тежести 7)Точна дата за нотариален акт 8)Неустойки двойно при отказ на продавача 9)Опис на обзавеждане. ЧЕКЛИСТ ДОКУМЕНТИ: 1)Нотариален акт копие за проверка 2)Тежести онлайн portal.registryagency.bg (такса 0.51€) 3)Кадастрална скица електронна справка 4)Лична карта на продавача съответства на акта 5)При съсобственост всички собственици подписват. ЧЕКЛИСТ ИПОТЕКА: 1)Лична карта 2)Документ за доход 3)Банкови извлечения 3 месеца 4)Трудов договор 5)При самоосигуряващи се данъчна декларация. Сравни ГПР на минимум 3 банки. ЧЕКЛИСТ НОТАРИАЛЕН АКТ: 1)Насрочи сделката ПРЕДИ 14:00 2)Провери имената и ЕГН в проекта 3)Провери кадастралния идентификатор 4)Клауза Евикция задължително 5)Плащане само по банков път 6)Нотариусът по район на имота.',
-  'КРИЗИСНИ СЦЕНАРИИ: При проблемна ситуация давай конкретен план, не само препратка към адвокат. БАНКОВ ОТКАЗ: 1)Провери за клауза за връщане на капарото в договора 2)Уведоми писмено продавача 3)При липса на клауза — адвокат. ПРОДАВАЧ ОТКАЗВА: Дължи двойното капаро по чл.93 ЗЗД — изпрати писмено искане, при отказ — районен съд. ОТКРИТИ ТЕЖЕСТИ: Развали писмено, поискай капарото обратно. СКРИТИ ДЕФЕКТИ: чл.193 ЗЗД — документирай с снимки веднага.',
-  'ПОДГОТОВКА ЗА СРЕЩА С БРОКЕР: Давай конкретен скрипт. Брокерът на обявата работи за ПРОДАВАЧА, не за купувача. ВЪПРОСИ: 1)За кого работите? 2)Колко е комисионната? 3)Кога е последното прехвърляне? 4)Има ли тежести? 5)Защо продава? 6)Колко е на пазара? 7)Има ли други оферти? ТАКТИКА: Не показвай ентусиазъм на огледа. Питай за проблемите преди да хвалиш. Не решавай на място.',
-  'АНАЛИЗ НА ДОГОВОР: При paste на текст от договор — анализирай директно. Проверявай: клауза банков отказ, клауза тежести, точна дата НА, условия на капарото, неустойки, опис обзавеждане. Посочвай кои клаузи липсват и какво точно да се добави. При сложни случаи препоръчвай адвокат.'
-].join('\n\n');
+<footer>
+  <div class="footer-logo">Брокер в джоба</div>
+  <div style="display:flex;gap:2rem;">
+    <a href="https://brokervdjoba.online/app.html">Приложението</a>
+    <a href="https://brokervdjoba.online/demo.html">Демо</a>
+    <a href="mailto:imot.space@gmail.com">Контакт</a>
+  </div>
+  <p>© 2026 Брокер в джоба · Радост Кръстева</p>
+</footer>
 
-var OB = [
-  {m:'Добре дошъл в Брокер в джоба — AI асистентът, включен в пакета imot.space.\n\nАз съм Radost. Тук съм 24/7 за всичко около покупката на имота ти.\n\nВляво виждаш менюто с темите, по които мога да ти помогна. Кликни на тема и започваме веднага — или просто ми пиши директно.\n\nМога да ти помогна с:\n- Бюджет и реални разходи\n- Оглед на имот\n- Проверка на документи\n- Предварителен договор\n- Нотариален акт\n- Ипотека и банки\n- Преговори за цена\n- Подготовка за среща с брокер\n- Анализ на договор\n- Актуални цени и лихви\n\nКупувал ли си имот преди?', c:['Не, за пръв път','Имам малко опит','Да, имам опит'], k:'o'},
-  {m:'В кой град търсиш?', c:['Варна','София','Пловдив','Бургас','Друг град'], k:'g'},
-  {m:'Как планираш да финансираш покупката?', c:['Собствени средства','С ипотека','Комбинирано','Още не знам'], k:'f'}
-];
-
-function startApp() {
-  var k = document.getElementById('akey').value.trim();
-  if (!k || k.length < 4) { alert('Моля въведи паролата за достъп.'); return; }
-  K = k;
-  document.getElementById('AS').style.display = 'none';
-  document.getElementById('AP').style.display = 'flex';
-  var saved = loadProfile();
-  if (saved) {
-    prof = saved; step = 3;
-    document.getElementById('chat').innerHTML = '';
-    addTS('Добре дошъл обратно!');
-    showBadge();
-    var g = prof.g, f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
-    var gc = (g !== 'Друг град') ? g : 'избрания град';
-    addBot('Здравей отново! Помня те — търсиш в ' + g + ', финансиране: ' + f + '.\n\nС какво мога да помогна днес?');
-    var cbar = document.querySelector('.cbar');
-    if (cbar) { cbar.style.display = (g === 'Варна') ? 'flex' : 'none'; }
-    var fc = hasIp
-      ? ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Подготви ме за оглед', 'Подготви ме за срещата с брокер']
-      : ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Какви документи трябват?', 'Подготви ме за оглед'];
-    setTimeout(function() { addQuickChips(fc); }, 400);
-  } else { beginOB(); }
-}
-
-function addQuickChips(fc) {
-  var c = document.getElementById('chat');
-  var r = document.createElement('div'); r.className = 'ch'; r.id = 'chips';
-  for (var i = 0; i < fc.length; i++) {
-    (function(v) {
-      var b = document.createElement('button'); b.className = 'cp'; b.textContent = v;
-      b.onclick = function() { rmChips(); addUser(v); callAPI(v); };
-      r.appendChild(b);
-    })(fc[i]);
-  }
-  c.appendChild(r); sc();
-}
-
-function saveProfile() {
-  try { localStorage.setItem('radost_prof', JSON.stringify(prof)); } catch(e) {}
-}
-
-function loadProfile() {
-  try {
-    var s = localStorage.getItem('radost_prof');
-    if (s) { var p = JSON.parse(s); if (p.o && p.g && p.f) return p; }
-  } catch(e) {}
-  return null;
-}
-
-function clearProfile() {
-  try { localStorage.removeItem('radost_prof'); } catch(e) {}
-}
-
-function beginOB() {
-  step = 0; prof = {o:null,g:null,f:null}; hist = [];
-  document.getElementById('chat').innerHTML = '';
-  addTS('Днес');
-  setTimeout(function() { showOB(0); }, 400);
-}
-
-function showOB(s) {
-  addBot(OB[s].m);
-  setTimeout(function() { addChips(OB[s].c, s); }, 300);
-}
-
-function addChips(arr, s) {
-  var c = document.getElementById('chat');
-  var r = document.createElement('div'); r.className = 'ch'; r.id = 'chips';
-  for (var i = 0; i < arr.length; i++) {
-    (function(v, idx) {
-      var b = document.createElement('button'); b.className = 'cp'; b.textContent = v;
-      b.onclick = function() { pickOB(v, idx); };
-      r.appendChild(b);
-    })(arr[i], s);
-  }
-  c.appendChild(r); sc();
-}
-
-function pickOB(v, s) {
-  rmChips(); addUser(v); prof[OB[s].k] = v;
-  if (s < OB.length - 1) { setTimeout(function() { showOB(s + 1); }, 500); }
-  else { step = 3; setTimeout(finishOB, 600); }
-}
-
-function finishOB() {
-  var g = prof.g, f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
-  saveProfile();
-  showBadge();
-  var cbar = document.querySelector('.cbar');
-  if (cbar) { cbar.style.display = (g === 'Варна') ? 'flex' : 'none'; }
-  var m = 'Страхотно!\n\n';
-  if (g !== 'Друг град') { m += 'Търсиш в ' + g + ', финансиране: ' + f + '.\n\n'; }
-  m += 'Твоят план:\n1. ' + (hasIp ? 'Предварително одобрение от банка (ПРЕДИ капаро!)' : 'Определяне на точния бюджет');
-  m += '\n2. Търсене и огледи (поне 2 пъти)\n3. Проверка на документи преди капаро\n4. Предварителен договор с адвокат\n5. Нотариален акт\n\n';
-  m += hasIp ? 'Важно: Предварително одобрение ПРЕДИ капаро!' : 'С ' + (f === 'Собствени средства' ? 'собствени средства' : 'комбинирано финансиране') + ' процесът е по-директен.';
-  addBot(m);
-  setTimeout(function() {
-    addPro('Искаш ли да изчислим заедно реалния ти бюджет?');
-  }, 800);
-  var gc = (g !== 'Друг град') ? g : 'избрания град';
-  var fc = [
-    'Изчисли бюджета ми',
-    'Цени в ' + gc + '?',
-    'Подготви ме за оглед',
-    'Подготви ме за среща с брокер',
-    hasIp ? 'Актуални лихви от банки' : 'Какви документи трябват?'
-  ];
-  setTimeout(function() { addQuickChips(fc); }, 1200);
-}
-
-function showBadge() {
-  var c = document.getElementById('chat');
-  var b = document.createElement('div'); b.className = 'bg';
-  b.textContent = '\u2713 ' + prof.o + ' \u00b7 ' + prof.g + ' \u00b7 ' + prof.f;
-  c.appendChild(b); sc();
-}
-
-function addPro(text) {
-  var c = document.getElementById('chat');
-  var p = document.createElement('div'); p.className = 'pr';
-  p.innerHTML = '\ud83d\udca1 ' + fmt(text);
-  c.appendChild(p); sc();
-}
-
-function addTS(t) {
-  var c = document.getElementById('chat');
-  var e = document.createElement('div'); e.className = 'ts'; e.textContent = t; c.appendChild(e);
-}
-
-function addBot(text) {
-  var c = document.getElementById('chat');
-  var r = document.createElement('div'); r.className = 'rw';
-  var a = document.createElement('div'); a.className = 'av bav'; a.textContent = 'R';
-  var b = document.createElement('div'); b.className = 'bb b'; b.innerHTML = fmt(text);
-  r.appendChild(a); r.appendChild(b); c.appendChild(r); sc();
-}
-
-function addUser(text) {
-  var c = document.getElementById('chat');
-  var r = document.createElement('div'); r.className = 'rw u';
-  var a = document.createElement('div'); a.className = 'av uav'; a.textContent = '\u0422\u0418';
-  var b = document.createElement('div'); b.className = 'bb u'; b.textContent = text;
-  r.appendChild(b); r.appendChild(a); c.appendChild(r); sc();
-}
-
-function showTyping() {
-  var c = document.getElementById('chat');
-  var r = document.createElement('div'); r.className = 'rw'; r.id = 'typing';
-  var a = document.createElement('div'); a.className = 'av bav'; a.textContent = 'R';
-  var b = document.createElement('div'); b.className = 'bb b';
-  b.innerHTML = '<div class="td"><span></span><span></span><span></span></div>';
-  r.appendChild(a); r.appendChild(b); c.appendChild(r); sc();
-}
-
-function hideTyping() { var e = document.getElementById('typing'); if (e) e.remove(); }
-function rmChips() { var e = document.getElementById('chips'); if (e) e.remove(); }
-function sc() { var c = document.getElementById('chat'); setTimeout(function() { c.scrollTop = c.scrollHeight; }, 50); }
-
-function showErr(m) {
-  var c = document.getElementById('chat');
-  var e = document.createElement('div'); e.className = 'er'; e.textContent = '\u26a0 ' + m; c.appendChild(e); sc();
-}
-
-async function callAPI(txt) {
-  if (busy) return; busy = true;
-  document.getElementById('sb').disabled = true;
-  rmChips(); showTyping();
-  var ctx = step >= 3 ? '[Профил: Опит=' + prof.o + ', Град=' + prof.g + ', Финансиране=' + prof.f + ']' : '';
-  hist.push({role: 'user', content: txt});
-  try {
-    var messages = hist.slice();
-    var reply = '';
-    var maxIter = 5;
-    while (maxIter-- > 0) {
-      var res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          password: K,
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: SYS + (ctx ? '\n\n' + ctx : ''),
-          tools: [{type: 'web_search_20250305', name: 'web_search'}],
-          messages: messages
-        })
-      });
-      if (!res.ok) {
-        var ed = await res.json().catch(function() { return {}; });
-        var errMsg = ed.error ? (ed.error.message || ed.error) : ('Грешка ' + res.status);
-        throw new Error(res.status + '|' + errMsg);
-      }
-      var data = await res.json();
-      if (data.content) {
-        for (var ci = 0; ci < data.content.length; ci++) {
-          if (data.content[ci].type === 'text' && data.content[ci].text) {
-            reply += data.content[ci].text;
-          }
-        }
-      }
-      if (data.stop_reason === 'end_turn') break;
-      if (data.stop_reason === 'tool_use') {
-        messages.push({role: 'assistant', content: data.content});
-        var toolResults = [];
-        for (var ti = 0; ti < data.content.length; ti++) {
-          if (data.content[ti].type === 'tool_use') {
-            toolResults.push({type: 'tool_result', tool_use_id: data.content[ti].id, content: ''});
-          }
-        }
-        if (toolResults.length > 0) {
-          messages.push({role: 'user', content: toolResults});
-        }
-      } else { break; }
-    }
-    if (!reply) { reply = 'Съжалявам, не получих отговор.'; }
-    hist.push({role: 'assistant', content: reply});
-    hideTyping(); addBot(reply);
-    if (hist.length > 20) { hist = hist.slice(-16); }
-  } catch(e) {
-    hideTyping();
-    var msg = e.message || '';
-    if (msg.indexOf('401') >= 0 || msg.indexOf('Грешна парола') >= 0) {
-      showErr('Грешна парола. Провери паролата и презареди страницата.');
-    } else if (msg.indexOf('429') >= 0) {
-      showErr('Много заявки едновременно. Изчакай 30 секунди и опитай пак.');
-    } else if (msg.indexOf('529') >= 0 || msg.toLowerCase().indexOf('overload') >= 0) {
-      showErr('В момента има голямо натоварване. Изчакай малко и опитай отново — обикновено минава за под минута.');
-    } else if (msg.indexOf('500') >= 0 || msg.indexOf('502') >= 0 || msg.indexOf('503') >= 0) {
-      showErr('Временен проблем със сървъра. Опитай пак след няколко секунди.');
-    } else if (msg.indexOf('network') >= 0 || msg.indexOf('fetch') >= 0 || msg.indexOf('Failed') >= 0) {
-      showErr('Няма интернет връзка. Провери връзката и опитай пак.');
-    } else {
-      showErr('Нещо се обърка. Опитай пак или презареди страницата.');
-    }
-  }
-  busy = false;
-  document.getElementById('sb').disabled = false;
-}
-
-function snd() {
-  var i = document.getElementById('ui'); var t = i.value.trim();
-  if (!t || busy) return;
-  i.value = ''; i.style.height = 'auto';
-  rmChips(); addUser(t); callAPI(t);
-}
-
-function hk(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); snd(); } }
-function ar(el) { el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 110) + 'px'; }
-
-function resetChat() {
-  var choice = confirm('Нов разговор?\n\nOK = нов разговор (профилът се помни)\nОтказ = изтрий профила и започни отначало');
-  if (choice) {
-    hist = [];
-    document.getElementById('chat').innerHTML = '';
-    addTS('Нов разговор');
-    var g = prof.g, f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
-    var gc = (g !== 'Друг град') ? g : 'избрания град';
-    addBot('Нов разговор! Помня те — търсиш в ' + g + ', финансиране: ' + f + '. С какво мога да помогна?');
-    var fc = hasIp ? ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Типични грешки'] : ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Какви документи трябват?'];
-    setTimeout(function() { addQuickChips(fc); }, 300);
-  } else {
-    clearProfile();
-    prof = {o:null,g:null,f:null};
-    hist = [];
-    beginOB();
-  }
-}
-
-function fmt(t) {
-  return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\n(\d+)\. /g, '<br><strong>$1.</strong> ')
-    .replace(/\n- /g, '<br>&bull; ')
-    .replace(/\n/g, '<br>');
-}
-
-function openModal(type) {
-  mtype = type;
-  document.getElementById('mtitle').textContent = type === 'broker' ? 'Консултация с брокер' : 'Консултация с кредитен консултант';
-  document.getElementById('mdesc').textContent = type === 'broker' ? 'Оставете контакт и брокерът ще се свърже с вас в рамките на работния ден.' : 'Безплатна консултация за ипотека. Оставете контакт и ще се свържем с вас.';
-  document.getElementById('mform').style.display = 'block';
-  document.getElementById('msucc').style.display = 'none';
-  document.getElementById('ovl').style.display = 'flex';
-}
-
-function closeModal() {
-  document.getElementById('ovl').style.display = 'none';
-  document.getElementById('mname').value = '';
-  document.getElementById('mphone').value = '';
-  document.getElementById('memail').value = '';
-  document.getElementById('mtime').value = '';
-}
-
-function submitForm() {
-  var name = document.getElementById('mname').value.trim();
-  var phone = document.getElementById('mphone').value.trim();
-  if (!name || !phone) { alert('Моля въведи ime и телефон.'); return; }
-  var time = document.getElementById('mtime').value || 'По всяко време';
-  var email = document.getElementById('memail').value.trim();
-  var label = mtype === 'broker' ? 'БРОКЕР' : 'КРЕДИТЕН КОНСУЛТАНТ';
-  var subj = encodeURIComponent('Заявка за ' + label + ' - ' + name);
-  var body = encodeURIComponent('Заявка за консултация с ' + label + '\n\nИме: ' + name + '\nТелефон: ' + phone + '\n' + (email ? 'Имейл: ' + email + '\n' : '') + 'Кога: ' + time + '\n\nПрофил: ' + (prof.o||'') + ' | ' + (prof.g||'') + ' | ' + (prof.f||''));
-  window.open('mailto:imot.space@gmail.com?subject=' + subj + '&body=' + body, '_blank');
-  document.getElementById('mform').style.display = 'none';
-  document.getElementById('msucc').style.display = 'block';
-  document.getElementById('msucctxt').textContent = mtype === 'broker' ? 'Заявката е изпратена! Брокерът ще се свърже с теб скоро.' : 'Заявката е изпратена! Кредитният консултант ще се свърже с теб скоро.';
-}
-
-document.getElementById('akey').addEventListener('keydown', function(e) { if (e.key === 'Enter') { startApp(); } });
-
-</script>
 </body>
 </html>

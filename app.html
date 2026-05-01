@@ -103,19 +103,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 </head>
 <body>
 
-<!-- ДЕМО РЕЖИМ — без парола -->
+<!-- ПАРОЛА ЕКРАН -->
 <div id="AS">
   <div>
     <div class="li">&#127968;</div>
     <div class="lt">Брокер в джоба</div>
-    <div class="ls">Демо версия · 10 безплатни въпроса</div>
+    <div class="ls">Твоят личен имотен асистент</div>
   </div>
   <div class="cd">
-    <h2>Добре дошъл в демото!</h2>
-    <p>Пробвай Брокер в джоба — единственият AI асистент за купувачи на имоти в България.<br><br>Имаш <strong>10 безплатни въпроса</strong>. После можеш да вземеш пълния пакет.</p>
-    <button class="ab" onclick="startApp()">Започни демото &#8594;</button>
+    <h2>Въведи парола за достъп</h2>
+    <p>Паролата е изпратена на имейла ти след покупката.</p>
+    <input type="password" id="akey" placeholder="Парола от имейла..." autocomplete="off">
+    <button class="ab" onclick="startApp()">Влез &#8594;</button>
   </div>
-  <p class="an">Вземи пълния достъп на <a href="https://imotspace.gumroad.com/l/imotspace" target="_blank">imot.space</a> · 14.90€</p>
+  <p class="an">Нямаш парола? Вземи пакета на <a href="https://imotspace.gumroad.com/l/imotspace" target="_blank">imot.space</a></p>
 </div>
 
 <!-- ГЛАВЕН ЕКРАН -->
@@ -304,16 +305,33 @@ var SYS = [
 ].join('\n\n');
 
 var OB = [
-  {m:'Добре дошъл в Брокер в джоба — AI асистентът, включен в пакета imot.space.\n\nАз съм Radost. Тук съм 24/7 за всичко около покупката на имота ти.\n\nВляво виждаш менюто с темите, по които мога да ти помогна. Кликни на тема и започваме веднага — или просто ми пиши директно.\n\nМога да ти помогна с:\n- Бюджет и реални разходи\n- Оглед на имот\n- Проверка на документи\n- Предварителен договор\n- Нотариален акт\n- Ипотека и банки\n- Преговори за цена\n- Подготовка за среща с брокер\n- Анализ на договор\n- Актуални цени и лихви\n\nКупувал ли си имот преди?', c:['Не, за пръв път','Имам малко опит','Да, имам опит'], k:'o'},
+  {m:'Добре дошъл в Брокер в джоба — твоят личен AI асистент за покупка на имот.\n\nАз съм Radost. Тук съм 24/7 за всичко около покупката на имота ти.\n\nВляво виждаш менюто с темите, по които мога да ти помогна. Кликни на тема и започваме веднага — или просто ми пиши директно.\n\nМога да ти помогна с:\n- Бюджет и реални разходи\n- Оглед на имот\n- Проверка на документи\n- Предварителен договор\n- Нотариален акт\n- Ипотека и банки\n- Преговори за цена\n- Подготовка за среща с брокер\n- Анализ на договор\n- Актуални цени и лихви\n\nКупувал ли си имот преди?', c:['Не, за пръв път','Имам малко опит','Да, имам опит'], k:'o'},
   {m:'В кой град търсиш?', c:['Варна','София','Пловдив','Бургас','Друг град'], k:'g'},
   {m:'Как планираш да финансираш покупката?', c:['Собствени средства','С ипотека','Комбинирано','Още не знам'], k:'f'}
 ];
 
 function startApp() {
-  K = 'demo';
+  var k = document.getElementById('akey').value.trim();
+  if (!k || k.length < 4) { alert('Моля въведи паролата за достъп.'); return; }
+  K = k;
   document.getElementById('AS').style.display = 'none';
   document.getElementById('AP').style.display = 'flex';
-  beginOB();
+  var saved = loadProfile();
+  if (saved) {
+    prof = saved; step = 3;
+    document.getElementById('chat').innerHTML = '';
+    addTS('Добре дошъл обратно!');
+    showBadge();
+    var g = prof.g, f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
+    var gc = (g !== 'Друг град') ? g : 'избрания град';
+    addBot('Здравей отново! Помня те — търсиш в ' + g + ', финансиране: ' + f + '.\n\nС какво мога да помогна днес?');
+    var cbar = document.querySelector('.cbar');
+    if (cbar) { cbar.style.display = (g === 'Варна') ? 'flex' : 'none'; }
+    var fc = hasIp
+      ? ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Подготви ме за оглед', 'Подготви ме за срещата с брокер']
+      : ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Какви документи трябват?', 'Подготви ме за оглед'];
+    setTimeout(function() { addQuickChips(fc); }, 400);
+  } else { beginOB(); }
 }
 
 function addQuickChips(fc) {
@@ -508,8 +526,6 @@ async function callAPI(txt) {
     if (!reply) { reply = 'Съжалявам, не получих отговор.'; }
     hist.push({role: 'assistant', content: reply});
     hideTyping(); addBot(reply);
-    demoMsgCount++;
-    if (demoMsgCount >= DEMO_LIMIT) { setTimeout(showDemoCTA, 800); }
     if (hist.length > 20) { hist = hist.slice(-16); }
   } catch(e) {
     hideTyping();
@@ -601,7 +617,7 @@ function submitForm() {
   document.getElementById('msucctxt').textContent = mtype === 'broker' ? 'Заявката е изпратена! Брокерът ще се свърже с теб скоро.' : 'Заявката е изпратена! Кредитният консултант ще се свърже с теб скоро.';
 }
 
-var akeyEl = document.getElementById('akey'); if (akeyEl) { akeyEl.addEventListener('keydown', function(e) { if (e.key === 'Enter') { startApp(); } }); }
+document.getElementById('akey').addEventListener('keydown', function(e) { if (e.key === 'Enter') { startApp(); } });
 
 </script>
 </body>
