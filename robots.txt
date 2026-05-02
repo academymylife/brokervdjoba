@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /demo.html
+Disallow: /app.html
+
+Sitemap: https://brokervdjoba.online/sitemap.xml
