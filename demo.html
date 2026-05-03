@@ -85,6 +85,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .stab{display:flex;align-items:center;gap:9px;padding:.55rem .85rem;margin:.1rem .5rem;border-radius:9px;cursor:pointer;transition:background .15s;border:none;background:none;width:calc(100% - 1rem);text-align:left;color:rgba(255,255,255,.65);font-family:'DM Sans',sans-serif;font-size:.8rem;}
 .stab:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.9);}
 .stab.active{background:rgba(27,75,138,.5);color:#fff;}
+.stab::after{content:"🔒";font-size:10px;margin-left:auto;opacity:.4;}
+.stab:hover::after{opacity:.7;}
 .stab-ic{font-size:15px;flex-shrink:0;width:20px;text-align:center;}
 .sb-new{margin:.75rem .5rem .5rem;padding:.6rem .75rem;background:rgba(27,75,138,.4);border:1px solid rgba(27,75,138,.6);border-radius:9px;cursor:pointer;color:#fff;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;display:flex;align-items:center;gap:6px;transition:background .15s;width:calc(100% - 1rem);}
 .sb-new:hover{background:rgba(27,75,138,.65);}
@@ -215,12 +217,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <script>
 
 function stabClick(el, msg) {
-  document.querySelectorAll('.stab').forEach(function(t){t.classList.remove('active');});
-  el.classList.add('active');
   document.getElementById('SB').classList.remove('open');
-  document.getElementById('ui').value = msg;
-  snd();
-  document.getElementById('ui').value = '';
+  // В демото менюто е заключено — показваме подсказка
+  var ct = document.getElementById('chat');
+  var tip = document.createElement('div');
+  tip.style.cssText = 'margin:.5rem 0 .5rem 36px;padding:.75rem 1rem;background:#FFF8E7;border:1px solid #F0C060;border-radius:12px;font-size:.82rem;color:#7A4F00;line-height:1.55;animation:fu .25s ease;';
+  tip.innerHTML = '&#128274; <strong>Тази тема е налична в пълната версия.</strong><br>Вземи Брокер в джоба за <strong>14.90€</strong> и получи неограничен достъп до всички теми 24/7.&nbsp; <a href="https://brokervdjoba.gumroad.com/l/broker" target="_blank" style="color:#1B4B8A;font-weight:600;text-decoration:none;">Вземи достъп →</a>';
+  ct.appendChild(tip);
+  ct.scrollTop = ct.scrollHeight;
 }
 function toggleMenu() {
   document.getElementById('SB').classList.toggle('open');
