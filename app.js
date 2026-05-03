@@ -64,14 +64,13 @@ function startApp() {
     document.getElementById('chat').innerHTML = '';
     addTS('Добре дошъл обратно!');
     showBadge();
-    var g = prof.g, f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
-    var gc = (g !== 'Друг град') ? g : 'избрания град';
+    var f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
     addBot('Здравей отново! Тук съм — с какво мога да ти помогна днес?');
     var cbar = document.querySelector('.cbar');
     if (cbar) { cbar.style.display = (g === 'Варна') ? 'flex' : 'none'; }
     var fc = hasIp
-      ? ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Подготви ме за оглед', 'Подготви ме за срещата с брокер']
-      : ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Какви документи трябват?', 'Подготви ме за оглед'];
+      ? ['Изчисли реалния ми бюджет', 'Подготви ме за оглед', 'Подготви ме за среща с брокер', 'Актуални лихви от банки']
+      : ['Изчисли реалния ми бюджет', 'Подготви ме за оглед', 'Какви документи трябват?', 'Имам конкретен въпрос'];
     setTimeout(function() { addQuickChips(fc); }, 400);
   } else { beginOB(); }
 }
@@ -137,7 +136,7 @@ function pickOB(v, s) {
 }
 
 function finishOB() {
-  var g = prof.g, f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
+  var f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
   saveProfile();
   showBadge();
   var cbar = document.querySelector('.cbar');
@@ -157,7 +156,7 @@ function finishOB() {
   setTimeout(function() {
     addPro('Искаш ли да изчислим заедно реалния ти бюджет?');
   }, 800);
-  var gc = (g !== 'Друг град') ? g : 'избрания град';
+
   var fc = [
     'Изчисли реалния ми бюджет с всички разходи',
     'Подготви ме за оглед',
@@ -171,7 +170,7 @@ function finishOB() {
 function showBadge() {
   var c = document.getElementById('chat');
   var b = document.createElement('div'); b.className = 'bg';
-  b.textContent = '\u2713 ' + prof.o + ' \u00b7 ' + prof.g + ' \u00b7 ' + prof.f;
+  b.textContent = '\u2713 ' + (prof.o||'') + ' \u00b7 ' + (prof.f||'');
   c.appendChild(b); sc();
 }
 
@@ -225,7 +224,7 @@ async function callAPI(txt) {
   if (busy) return; busy = true;
   document.getElementById('sb').disabled = true;
   rmChips(); showTyping();
-  var ctx = step >= 3 ? '[Профил: Опит=' + prof.o + ', Град=' + prof.g + ', Финансиране=' + prof.f + ']' : '';
+  var ctx = step >= 3 ? '[Профил: Опит=' + prof.o + ', Стъпка=' + prof.f + ']' : '';
   hist.push({role: 'user', content: txt});
   try {
     var messages = hist.slice();
@@ -312,8 +311,7 @@ function resetChat() {
     hist = [];
     document.getElementById('chat').innerHTML = '';
     addTS('Нов разговор');
-    var g = prof.g, f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
-    var gc = (g !== 'Друг град') ? g : 'избрания град';
+    var f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
     addBot('Нов разговор! Помня те — търсиш в ' + g + ', финансиране: ' + f + '. С какво мога да помогна?');
     var fc = hasIp ? ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Типични грешки'] : ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Какви документи трябват?'];
     setTimeout(function() { addQuickChips(fc); }, 300);
@@ -358,7 +356,7 @@ function submitForm() {
   var email = document.getElementById('memail').value.trim();
   var label = mtype === 'broker' ? 'БРОКЕР' : 'КРЕДИТЕН КОНСУЛТАНТ';
   var subj = encodeURIComponent('Заявка за ' + label + ' - ' + name);
-  var body = encodeURIComponent('Заявка за консултация с ' + label + '\n\nИме: ' + name + '\nТелефон: ' + phone + '\n' + (email ? 'Имейл: ' + email + '\n' : '') + 'Кога: ' + time + '\n\nПрофил: ' + (prof.o||'') + ' | ' + (prof.g||'') + ' | ' + (prof.f||''));
+  var body = encodeURIComponent('Заявка за консултация с ' + label + '\n\nИме: ' + name + '\nТелефон: ' + phone + '\n' + (email ? 'Имейл: ' + email + '\n' : '') + 'Кога: ' + time + '\n\nПрофил: ' + (prof.o||'') + ' | ' + (prof.f||''));
   window.open('mailto:imot.space@gmail.com?subject=' + subj + '&body=' + body, '_blank');
   document.getElementById('mform').style.display = 'none';
   document.getElementById('msucc').style.display = 'block';
