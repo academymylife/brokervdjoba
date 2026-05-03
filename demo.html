@@ -21,7 +21,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .ab{width:100%;margin-top:1rem;padding:.9rem;background:var(--ac);color:#fff;border:none;border-radius:10px;font-size:.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;}
 .ab:hover{opacity:.9;}
 .an{font-size:.775rem;color:var(--tx3);text-align:center;line-height:1.5;}
-.an a{color:var(--ac);}
+.an a{color:var(--ac);text-decoration:none;}
+#AP{display:none;width:100%;max-width:520px;height:100vh;max-height:900px;flex-direction:column;background:var(--sf);overflow:hidden;box-shadow:0 2px 30px rgba(0,0,0,.1);position:relative;}
+@media(min-width:600px){#AP{border-radius:24px;height:calc(100vh - 3rem);margin:1.5rem auto;}body{padding:0 1rem;}}
 .hd{display:flex;align-items:center;gap:12px;padding:.85rem 1.25rem;border-bottom:1px solid var(--bd);background:var(--sf);}
 .ha{width:38px;height:38px;background:var(--ac);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
 .hn{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;}
@@ -69,137 +71,43 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .mok{background:var(--ac);color:#fff;border:none;}
 .mcn{background:none;border:1px solid var(--bd);color:var(--tx2);}
 .msucc{text-align:center;padding:1rem 0;}
-
-/* SIDEBAR */
-#AP{display:none;width:100%;max-width:960px;height:100vh;max-height:900px;flex-direction:row;background:var(--sf);overflow:hidden;box-shadow:0 2px 30px rgba(0,0,0,.12);position:relative;}
-@media(min-width:600px){#AP{border-radius:24px;height:calc(100vh - 3rem);margin:1.5rem auto;}body{padding:0 1rem;}}
-#SB{width:220px;flex-shrink:0;background:#0f1e35;display:flex;flex-direction:column;overflow:hidden;position:sticky;top:0;height:100%;align-self:flex-start;}
-.sb-head{padding:1.1rem 1rem;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:9px;}
-.sb-icon{width:32px;height:32px;background:#1B4B8A;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
-.sb-title{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:500;color:#fff;line-height:1.2;}
-.sb-sub{font-size:.65rem;color:rgba(255,255,255,.4);margin-top:1px;}
-.sb-section{padding:.7rem .75rem .3rem;font-size:.6rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.3);}
-.sb-items{flex:1;overflow-y:auto;padding:.25rem 0;scrollbar-width:thin;}
-.sb-items::-webkit-scrollbar{width:2px;}
-.sb-items::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
-.stab{display:flex;align-items:center;gap:9px;padding:.55rem .85rem;margin:.1rem .5rem;border-radius:9px;cursor:pointer;transition:background .15s;border:none;background:none;width:calc(100% - 1rem);text-align:left;color:rgba(255,255,255,.65);font-family:'DM Sans',sans-serif;font-size:.8rem;}
-.stab:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.9);}
-.stab.active{background:rgba(27,75,138,.5);color:#fff;}
-.stab-ic{font-size:15px;flex-shrink:0;width:20px;text-align:center;}
-.sb-new{margin:.75rem .5rem .5rem;padding:.6rem .75rem;background:rgba(27,75,138,.4);border:1px solid rgba(27,75,138,.6);border-radius:9px;cursor:pointer;color:#fff;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;display:flex;align-items:center;gap:6px;transition:background .15s;width:calc(100% - 1rem);}
-.sb-new:hover{background:rgba(27,75,138,.65);}
-#CZ{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden;}
-.mob-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--tx2);margin-right:4px;}
-.fab-menu{display:none;position:absolute;bottom:80px;right:14px;z-index:40;width:44px;height:44px;background:var(--ac);border:none;border-radius:50%;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);color:#fff;font-size:18px;}
-@media(max-width:700px){
-  #SB{position:absolute;left:-220px;top:0;bottom:0;z-index:50;transition:left .25s ease;box-shadow:4px 0 20px rgba(0,0,0,.2);}
-  #SB.open{left:0;}
-  .mob-menu-btn{display:flex;align-items:center;}
-  .fab-menu{display:flex !important;}
-  #AP{max-width:100%;}
-}
-
 </style>
 </head>
 <body>
 
-<!-- ДЕМО РЕЖИМ — без парола -->
 <div id="AS">
   <div>
     <div class="li">&#127968;</div>
     <div class="lt">Брокер в джоба</div>
-    <div class="ls">Демо версия · 5 безплатни въпроса</div>
+    <div class="ls">Демо версия · 10 безплатни въпроса</div>
   </div>
   <div class="cd">
     <h2>Добре дошъл в демото!</h2>
-    <p>Пробвай Брокер в джоба — единственият AI асистент за купувачи на имоти в България.<br><br>Имаш <strong>5 безплатни въпроса</strong>. После можеш да вземеш пълния пакет.</p>
+    <p>Пробвай Брокер в джоба — единственият AI асистент за купувачи на имоти в България.<br><br>Имаш <strong>10 безплатни въпроса</strong>. После можеш да вземеш пълния пакет.</p>
     <button class="ab" onclick="startApp()">Започни демото &#8594;</button>
   </div>
-  <p class="an">Вземи пълния достъп на <a href="https://imotspace.gumroad.com/l/imotspace" target="_blank">imot.space</a> · 14.90€</p>
+  <p class="an">Вземи пълния достъп на <a href="https://brokervdjoba.gumroad.com/l/broker" target="_blank" style="color:var(--ac);">brokervdjoba.online</a> · 14.90€</p>
 </div>
 
-<!-- ГЛАВЕН ЕКРАН -->
 <div id="AP">
-  <!-- СТРАНИЧНО МЕНЮ -->
-  <div id="SB">
-    <div class="sb-head">
-      <div class="sb-icon">&#127968;</div>
-      <div>
-        <div class="sb-title">Брокер в джоба</div>
-        <div class="sb-sub">Radost &middot; онлайн</div>
-      </div>
+  <div class="hd">
+    <div class="ha">&#127968;</div>
+    <div>
+      <div class="hn">Брокер в джоба</div>
+      <div class="hs"><span style="width:5px;height:5px;background:var(--a2);border-radius:50%;display:inline-block"></span>&nbsp;Radost &middot; онлайн</div>
     </div>
-    <div class="sb-items">
-      <div class="sb-section">Стъпки при покупка</div>
-      <button class="stab active" onclick="stabClick(this,'Помогни ми да разбера реалния си бюджет с всички разходи, данъци и такси.')">
-        <span class="stab-ic">&#128176;</span><span>Бюджет и разходи</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Намерих имот. Как да направя правилния оглед и какво точно да проверя?')">
-        <span class="stab-ic">&#128269;</span><span>Оглед на имот</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Как да проверя документите и тежестите преди да дам капаро?')">
-        <span class="stab-ic">&#128196;</span><span>Проверка на документи</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Обясни ми предварителния договор — какви клаузи трябват и как да се защитя?')">
-        <span class="stab-ic">&#9997;&#65039;</span><span>Предварителен договор</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Как работи нотариалният акт и какво да проверя в деня на сделката?')">
-        <span class="stab-ic">&#9878;&#65039;</span><span>Нотариален акт</span>
-      </button>
-      <div class="sb-section">Финансиране</div>
-      <button class="stab" onclick="stabClick(this,'Помогни ми с ипотеката — как да сравня банки, какви документи и каква вноска мога да си позволя?')">
-        <span class="stab-ic">&#127981;</span><span>Ипотека и банки</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Искам да преговарям за цената. Как да го направя правилно?')">
-        <span class="stab-ic">&#128176;</span><span>Преговори за цена</span>
-      </button>
-      <div class="sb-section">Подготовка</div>
-      <button class="stab" onclick="stabClick(this,'Подготви ме за срещата с брокера — какво да питам и как да не бъда манипулиран?')">
-        <span class="stab-ic">&#129309;</span><span>Среща с брокер</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Имам проблем с покупката. Кажи ми какво да правя.')">
-        <span class="stab-ic">&#128680;</span><span>Имам проблем</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Искам да анализираш текст от моя договор. Ще го paste-на тук.')">
-        <span class="stab-ic">&#128202;</span><span>Анализ на договор</span>
-      </button>
-      <div class="sb-section">Пазарни данни</div>
-      <button class="stab" onclick="stabClick(this,'Провери актуалните цени на имоти в квартала, който ме интересува.')">
-        <span class="stab-ic">&#128200;</span><span>Актуални цени</span>
-      </button>
-      <button class="stab" onclick="stabClick(this,'Какви са актуалните лихви по ипотеки от различни банки?')">
-        <span class="stab-ic">&#128184;</span><span>Лихви по ипотеки</span>
-      </button>
-    </div>
-    <button class="sb-new" onclick="resetChat()">&#43; Нов разговор</button>
+    <button class="hb" onclick="resetChat()">Нов разговор</button>
   </div>
-  <!-- ЧАТ ЗОНА -->
-  <div id="CZ">
-    <div class="hd">
-      <button class="mob-menu-btn" onclick="toggleMenu()">
-        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="currentColor"/><rect y="9" width="20" height="2" rx="1" fill="currentColor"/><rect y="15" width="20" height="2" rx="1" fill="currentColor"/></svg>
-      </button>
-      <div class="ha">&#127968;</div>
-      <div>
-        <div class="hn">Брокер в джоба</div>
-        <div class="hs"><span style="width:5px;height:5px;background:var(--a2);border-radius:50%;display:inline-block"></span>&nbsp;Radost &middot; онлайн</div>
-      </div>
-      <button class="hb" onclick="resetChat()">Нов разговор</button>
-    </div>
-    <div class="ct" id="chat"></div>
-    <div class="ip">
-      <textarea id="ui" placeholder="Напиши въпрос..." rows="1" onkeydown="hk(event)" oninput="ar(this)"></textarea>
-      <button class="sb" id="sb" onclick="snd()">
-        <svg viewBox="0 0 20 20"><path d="M2.5 10L17.5 2.5L12.5 10L17.5 17.5L2.5 10Z"/></svg>
-      </button>
-    </div>
-    <button class="fab-menu" onclick="toggleMenu()">&#9776;</button>
-    <div class="cbar">
-      <button onclick="openModal('credit')" style="flex:1;padding:.6rem .5rem;border-radius:9px;font-size:.75rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;background:var(--a2l);color:var(--a2);border:1px solid #B8DDD0;">&#128203; Кредитен консултант</button>
-    </div>
-  </div><!-- /CZ -->
-
-  <!-- МОДАЛ -->
+  <div class="ct" id="chat"></div>
+  <div class="ip">
+    <textarea id="ui" placeholder="Напиши въпрос..." rows="1" onkeydown="hk(event)" oninput="ar(this)"></textarea>
+    <button class="sb" id="sb" onclick="snd()">
+      <svg viewBox="0 0 20 20"><path d="M2.5 10L17.5 2.5L12.5 10L17.5 17.5L2.5 10Z"/></svg>
+    </button>
+  </div>
+  <div class="cbar">
+    <button onclick="openModal('credit')" style="flex:1;padding:.6rem .5rem;border-radius:9px;font-size:.75rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;background:var(--a2l);color:var(--a2);border:1px solid #B8DDD0;">&#128203; Кредитен консултант</button>
+  </div>
   <div class="ovl" id="ovl">
     <div class="mbox">
       <div id="mform">
@@ -229,31 +137,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
       </div>
     </div>
   </div>
-
-</div><!-- /AP -->
+</div>
 
 <script>
-
-function stabClick(el, msg) {
-  document.querySelectorAll('.stab').forEach(function(t){t.classList.remove('active');});
-  el.classList.add('active');
-  document.getElementById('SB').classList.remove('open');
-  document.getElementById('ui').value = msg;
-  snd();
-  document.getElementById('ui').value = '';
-}
-function toggleMenu() {
-  document.getElementById('SB').classList.toggle('open');
-}
-document.addEventListener('click', function(e) {
-  var sb = document.getElementById('SB');
-  if (sb && sb.classList.contains('open')) {
-    if (!sb.contains(e.target) && !e.target.closest('.mob-menu-btn') && !e.target.closest('.fab-menu')) {
-      sb.classList.remove('open');
-    }
-  }
-});
-
+var demoMsgCount = 0;
+var DEMO_LIMIT = 10;
 var K = '', busy = false, step = 0, hist = [], prof = {o:null,g:null,f:null}, mtype = 'broker';
 
 var SYS = [
@@ -304,9 +192,8 @@ var SYS = [
 ].join('\n\n');
 
 var OB = [
-  {m:'Добре дошъл в Брокер в джоба — AI асистентът, включен в пакета imot.space.\n\nАз съм Radost. Тук съм 24/7 за всичко около покупката на имота ти.\n\nВляво виждаш менюто с темите, по които мога да ти помогна. Кликни на тема и започваме веднага — или просто ми пиши директно.\n\nМога да ти помогна с:\n- Бюджет и реални разходи\n- Оглед на имот\n- Проверка на документи\n- Предварителен договор\n- Нотариален акт\n- Ипотека и банки\n- Преговори за цена\n- Подготовка за среща с брокер\n- Анализ на договор\n- Актуални цени и лихви\n\nКупувал ли си имот преди?', c:['Не, за пръв път','Имам малко опит','Да, имам опит'], k:'o'},
-  {m:'В кой град търсиш?', c:['Варна','София','Пловдив','Бургас','Друг град'], k:'g'},
-  {m:'Как планираш да финансираш покупката?', c:['Собствени средства','С ипотека','Комбинирано','Още не знам'], k:'f'}
+  {m:'Добре дошъл в Брокер в джоба — твоят личен AI асистент за покупка на имот.\n\nАз съм Radost. Тук съм 24/7 за всичко около покупката на имота ти.\n\nВляво виждаш менюто с темите, по които мога да ти помогна. Кликни на тема и започваме веднага — или просто ми пиши директно.\n\nМога да ти помогна с:\n- Бюджет и реални разходи\n- Оглед на имот\n- Проверка на документи\n- Предварителен договор\n- Нотариален акт\n- Ипотека и банки\n- Преговори за цена\n- Подготовка за среща с брокер\n- Анализ на договор\n\nКупувал ли си имот преди?', c:['Не, за пръв път','Имам малко опит','Да, имам опит'], k:'o'},
+  {m:'На коя стъпка си в момента?', c:['Още търся имот','Намерих имот','Готвя се за договор','Имам конкретен въпрос'], k:'f'}
 ];
 
 function startApp() {
@@ -377,35 +264,56 @@ function pickOB(v, s) {
 }
 
 function finishOB() {
-  var g = prof.g, f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
+  var f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
   saveProfile();
   showBadge();
   var cbar = document.querySelector('.cbar');
-  if (cbar) { cbar.style.display = (g === 'Варна') ? 'flex' : 'none'; }
+  if (cbar) { cbar.style.display = 'none'; }
+  var stypka = f;
   var m = 'Страхотно!\n\n';
-  if (g !== 'Друг град') { m += 'Търсиш в ' + g + ', финансиране: ' + f + '.\n\n'; }
-  m += 'Твоят план:\n1. ' + (hasIp ? 'Предварително одобрение от банка (ПРЕДИ капаро!)' : 'Определяне на точния бюджет');
-  m += '\n2. Търсене и огледи (поне 2 пъти)\n3. Проверка на документи преди капаро\n4. Предварителен договор с адвокат\n5. Нотариален акт\n\n';
-  m += hasIp ? 'Важно: Предварително одобрение ПРЕДИ капаро!' : 'С ' + (f === 'Собствени средства' ? 'собствени средства' : 'комбинирано финансиране') + ' процесът е по-директен.';
+  if (stypka === 'Намерих имот') {
+    m += 'Намерил си имот — сега е най-важното: да го провериш правилно преди да дадеш капаро.\n\nПрепоръчвам да започнем с:\n1. Проверка на документи и тежести\n2. Анализ на предварителния договор\n3. Подготовка за преговори';
+  } else if (stypka === 'Готвя се за договор') {
+    m += 'Договорът е най-критичната стъпка — точно тук се печели или губи капарото.\n\nПрепоръчвам да започнем с:\n1. Анализ на договорните клаузи\n2. Клауза при банков отказ\n3. Защита на капарото';
+  } else if (stypka === 'Имам конкретен въпрос') {
+    m += 'Перфектно — питай директно и ще ти отговоря веднага.';
+  } else {
+    m += 'Ще те водя стъпка по стъпка от първия оглед до ключа в ръката.\n\nТвоят план:\n1. Определяне на реалния бюджет с всички разходи\n2. Огледи — поне 2 пъти, с чеклист\n3. Проверка на документи преди капаро\n4. Предварителен договор с адвокат\n5. Нотариален акт';
+  }
   addBot(m);
   setTimeout(function() {
     addPro('Искаш ли да изчислим заедно реалния ти бюджет?');
   }, 800);
-  var gc = (g !== 'Друг град') ? g : 'избрания град';
+
   var fc = [
-    'Изчисли бюджета ми',
-    'Цени в ' + gc + '?',
+    'Изчисли реалния ми бюджет с всички разходи',
     'Подготви ме за оглед',
     'Подготви ме за среща с брокер',
-    hasIp ? 'Актуални лихви от банки' : 'Какви документи трябват?'
+    'Какви документи трябват преди капарото?',
+    'Актуални лихви от банки'
   ];
   setTimeout(function() { addQuickChips(fc); }, 1200);
+}
+
+function showDemoCTA() {
+  var ct = document.getElementById('chat');
+  var cta = document.createElement('div');
+  cta.style.cssText = 'margin:1rem 0;padding:1.25rem;background:linear-gradient(135deg,#1B4B8A,#2255a4);border-radius:16px;color:#fff;text-align:center;';
+  cta.innerHTML = '<div style="font-size:1.05rem;font-weight:700;margin-bottom:.5rem;">Пробвал си демото!</div>'
+    + '<div style="font-size:.85rem;opacity:.9;margin-bottom:1rem;line-height:1.6;">Пълната версия: неограничени въпроси, наръчник 101 стр., 5 чеклиста и AI 24/7.</div>'
+    + '<a href="https://brokervdjoba.gumroad.com/l/broker" target="_blank" style="display:inline-block;background:#fff;color:#1B4B8A;padding:.7rem 1.75rem;border-radius:50px;font-weight:700;font-size:.875rem;text-decoration:none;">Вземи пълния пакет за 14.90€ →</a>'
+    + '<div style="font-size:.72rem;opacity:.6;margin-top:.6rem;">После 24.90€ · Еднократно · Незабавен достъп</div>';
+  ct.appendChild(cta);
+  ct.scrollTop = ct.scrollHeight;
+  document.getElementById('ui').disabled = true;
+  document.getElementById('sb').disabled = true;
+  document.getElementById('ui').placeholder = 'За повече въпроси вземи пълния пакет →';
 }
 
 function showBadge() {
   var c = document.getElementById('chat');
   var b = document.createElement('div'); b.className = 'bg';
-  b.textContent = '\u2713 ' + prof.o + ' \u00b7 ' + prof.g + ' \u00b7 ' + prof.f;
+  b.textContent = '\u2713 ' + (prof.o||'') + ' \u00b7 ' + (prof.f||'');
   c.appendChild(b); sc();
 }
 
@@ -459,7 +367,7 @@ async function callAPI(txt) {
   if (busy) return; busy = true;
   document.getElementById('sb').disabled = true;
   rmChips(); showTyping();
-  var ctx = step >= 3 ? '[Профил: Опит=' + prof.o + ', Град=' + prof.g + ', Финансиране=' + prof.f + ']' : '';
+  var ctx = step >= 3 ? '[Профил: Опит=' + prof.o + ', Стъпка=' + prof.f + ']' : '';
   hist.push({role: 'user', content: txt});
   try {
     var messages = hist.slice();
@@ -548,8 +456,7 @@ function resetChat() {
     hist = [];
     document.getElementById('chat').innerHTML = '';
     addTS('Нов разговор');
-    var g = prof.g, f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
-    var gc = (g !== 'Друг град') ? g : 'избрания град';
+    var f = prof.f, hasIp = (f === 'С ипотека' || f === 'Комбинирано');
     addBot('Нов разговор! Помня те — търсиш в ' + g + ', финансиране: ' + f + '. С какво мога да помогна?');
     var fc = hasIp ? ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Типични грешки'] : ['Изчисли бюджета ми', 'Цени в ' + gc + '?', 'Какви документи трябват?'];
     setTimeout(function() { addQuickChips(fc); }, 300);
@@ -594,7 +501,7 @@ function submitForm() {
   var email = document.getElementById('memail').value.trim();
   var label = mtype === 'broker' ? 'БРОКЕР' : 'КРЕДИТЕН КОНСУЛТАНТ';
   var subj = encodeURIComponent('Заявка за ' + label + ' - ' + name);
-  var body = encodeURIComponent('Заявка за консултация с ' + label + '\n\nИме: ' + name + '\nТелефон: ' + phone + '\n' + (email ? 'Имейл: ' + email + '\n' : '') + 'Кога: ' + time + '\n\nПрофил: ' + (prof.o||'') + ' | ' + (prof.g||'') + ' | ' + (prof.f||''));
+  var body = encodeURIComponent('Заявка за консултация с ' + label + '\n\nИме: ' + name + '\nТелефон: ' + phone + '\n' + (email ? 'Имейл: ' + email + '\n' : '') + 'Кога: ' + time + '\n\nПрофил: ' + (prof.o||'') + ' | ' + (prof.f||''));
   window.open('mailto:imot.space@gmail.com?subject=' + subj + '&body=' + body, '_blank');
   document.getElementById('mform').style.display = 'none';
   document.getElementById('msucc').style.display = 'block';
