@@ -14,7 +14,8 @@ export default async function handler(req, res) {
   try {
     const { password, model, max_tokens, system, tools, messages } = req.body;
 
-    if (password !== process.env.APP_PASSWORD) {
+    const isDemo = password === 'demo';
+    if (!isDemo && password !== process.env.APP_PASSWORD) {
       return res.status(401).json({ error: 'Грешна парола' });
     }
 
