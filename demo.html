@@ -602,7 +602,7 @@ function submitForm() {
   var label = mtype === 'broker' ? 'БРОКЕР' : 'КРЕДИТЕН КОНСУЛТАНТ';
   var subj = encodeURIComponent('Заявка за ' + label + ' - ' + name);
   var body = encodeURIComponent('Заявка за консултация с ' + label + '\n\nИме: ' + name + '\nТелефон: ' + phone + '\n' + (email ? 'Имейл: ' + email + '\n' : '') + 'Кога: ' + time + '\n\nПрофил: ' + (prof.o||'') + ' | ' + (prof.f||''));
-  window.open('mailto:imot.space@gmail.com?subject=' + subj + '&body=' + body, '_blank');
+  window.open('mailto:brokervdjoba@gmail.com?subject=' + subj + '&body=' + body, '_blank');
   document.getElementById('mform').style.display = 'none';
   document.getElementById('msucc').style.display = 'block';
   document.getElementById('msucctxt').textContent = mtype === 'broker' ? 'Заявката е изпратена! Брокерът ще се свърже с теб скоро.' : 'Заявката е изпратена! Кредитният консултант ще се свърже с теб скоро.';
