@@ -62,6 +62,7 @@ export default async function handler(req, res) {
 
         // Всяка друга грешка — не retry, върни веднага
         const errData = await response.json().catch(() => ({}));
+        console.error('Anthropic error:', response.status, JSON.stringify(errData));
         return res.status(response.status).json(errData);
 
       } catch (fetchError) {
