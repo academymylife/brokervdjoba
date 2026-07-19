@@ -681,20 +681,19 @@ footer p { color:rgba(255,255,255,.3); font-size:.8rem; letter-spacing:.03em; }
       <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
       <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);
       $mcj(document).ready(function() {
-        $mcj('#mc-embedded-subscribe-form').on('submit', function() {
+        $mcj('#mc-embedded-subscribe-form').on('submit', function(e) {
+          var email = $mcj('#mce-EMAIL').val();
+          if (!email) return;
           setTimeout(function() {
-            var success = $mcj('#mce-success-response').text();
-            if (success) {
-              $mcj('#mce-success-response').text('Наръчникът е на път към теб! Провери имейла си.');
-              $mcj('#mce-success-response').css({
-                'color': '#FF6A00',
-                'font-size': '1rem',
-                'font-weight': '700',
-                'padding': '.75rem',
-                'display': 'block'
-              });
-            }
-          }, 1500);
+            $mcj('#mc_embed_signup form').hide();
+            $mcj('#mc_embed_signup').append(
+              '<div style="text-align:center;padding:1.5rem 0;">' +
+              '<div style="font-size:2rem;margin-bottom:.5rem;">✅</div>' +
+              '<p style="color:#FF6A00;font-size:1.1rem;font-weight:700;margin-bottom:.5rem;">Наръчникът е на път!</p>' +
+              '<p style="color:rgba(255,255,255,.6);font-size:.9rem;">Провери имейла си — ще го получиш след секунди.</p>' +
+              '</div>'
+            );
+          }, 1000);
         });
       });</script>
     </div>
