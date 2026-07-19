@@ -591,7 +591,7 @@ footer p { color:rgba(255,255,255,.3); font-size:.8rem; letter-spacing:.03em; }
 
 <!-- LEAD MAGNET СЕКЦИЯ -->
 <section id="lead-magnet" style="background:#0D1B2A;padding:4rem 1.5rem;">
-  <div style="max-width:600px;margin:0 auto;text-align:center;">
+  <div style="max-width:560px;margin:0 auto;text-align:center;">
     <div style="display:inline-block;background:rgba(255,106,0,0.15);border:1px solid #FF6A00;border-radius:50px;padding:.5rem 1.25rem;margin-bottom:1.5rem;">
       <span style="color:#FF6A00;font-size:.85rem;font-weight:600;letter-spacing:1px;">БЕЗПЛАТНО</span>
     </div>
@@ -606,97 +606,32 @@ footer p { color:rgba(255,255,255,.3); font-size:.8rem; letter-spacing:.03em; }
       Безплатно. Веднага на имейла ти.
     </p>
 
-    <!-- Mailchimp форма -->
-    <div id="mc_embed_shell" style="max-width:480px;margin:0 auto;">
-      <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
-      <style>
-        #mc_embed_signup {
-          background: transparent !important;
-          clear: left;
-          font-family: inherit !important;
-          width: 100% !important;
-        }
-        #mc_embed_signup h2 { display: none; }
-        #mc_embed_signup .indicates-required { display: none; }
-        #mc_embed_signup .mc-field-group label { display: none; }
-        #mc_embed_signup input.email {
-          background: rgba(255,255,255,0.08) !important;
-          border: 1px solid rgba(255,255,255,0.2) !important;
-          border-radius: 50px !important;
-          color: #fff !important;
-          padding: 1rem 1.5rem !important;
-          font-size: 1rem !important;
-          width: 100% !important;
-          box-sizing: border-box !important;
-        }
-        #mc_embed_signup input.email::placeholder { color: rgba(255,255,255,0.4) !important; }
-        #mc_embed_signup input.email:focus {
-          border-color: #FF6A00 !important;
-          outline: none !important;
-          background: rgba(255,255,255,0.12) !important;
-        }
-        #mc_embed_signup .mc-field-group { margin-bottom: .75rem !important; padding-bottom: 0 !important; }
-        #mc_embed_signup #mc-embedded-subscribe {
-          background: #FF6A00 !important;
-          border: none !important;
-          border-radius: 50px !important;
-          color: #fff !important;
-          font-size: .875rem !important;
-          font-weight: 700 !important;
-          padding: 1.25rem 1rem !important;
-          cursor: pointer !important;
-          width: 100% !important;
-          transition: background .2s !important;
-          line-height: 1.4 !important;
-          height: auto !important;
-        }
-        #mc_embed_signup #mc-embedded-subscribe:hover { background: #e05a00 !important; }
-        #mc_embed_signup #mce-responses { margin-top: .5rem; }
-        #mc_embed_signup .response { color: #FF6A00 !important; font-size: .9rem; }
-        #mc_embed_signup form { padding: 0 !important; }
-        #mc_embed_signup div.mce_inline_error { background: transparent !important; color: #FF6A00 !important; font-size: .85rem; }
-      </style>
-      <div id="mc_embed_signup">
-        <form action="https://online.us3.list-manage.com/subscribe/post?u=bd97f4a09e396eec750942f45&amp;id=8aaef55875&amp;f_id=0038ace2f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-          <div id="mc_embed_signup_scroll">
-            <h2>Вземи безплатния наръчник</h2>
-            <div class="mc-field-group">
-              <label for="mce-EMAIL">Email Address</label>
-              <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" placeholder="твоят@имейл.com">
-            </div>
-            <div id="mce-responses" class="clear">
-              <div class="response" id="mce-error-response" style="display: none;"></div>
-              <div class="response" id="mce-success-response" style="display: none;"></div>
-            </div>
-            <div aria-hidden="true" style="position: absolute; left: -5000px;">
-              <input type="text" name="b_bd97f4a09e396eec750942f45_8aaef55875" tabindex="-1" value="">
-            </div>
-            <div class="clear">
-              <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Вземи безплатно →">
-            </div>
-          </div>
-        </form>
+    <form action="https://online.us3.list-manage.com/subscribe/post?u=bd97f4a09e396eec750942f45&amp;id=8aaef55875&amp;f_id=0038ace2f0" method="POST" target="_blank" id="lm-form" style="max-width:420px;margin:0 auto;">
+      <input type="hidden" name="b_bd97f4a09e396eec750942f45_8aaef55875" value="">
+      <div style="margin-bottom:.75rem;">
+        <input type="email" name="EMAIL" required placeholder="твоят@имейл.com"
+          style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:#fff;padding:1rem 1.5rem;font-size:1rem;outline:none;">
       </div>
-      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-      <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-      <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);
-      $mcj(document).ready(function() {
-        $mcj('#mc-embedded-subscribe-form').on('submit', function(e) {
-          var email = $mcj('#mce-EMAIL').val();
-          if (!email) return;
-          setTimeout(function() {
-            $mcj('#mc_embed_signup form').hide();
-            $mcj('#mc_embed_signup').append(
-              '<div style="text-align:center;padding:1.5rem 0;">' +
-              '<div style="font-size:2rem;margin-bottom:.5rem;">✅</div>' +
-              '<p style="color:#FF6A00;font-size:1.1rem;font-weight:700;margin-bottom:.5rem;">Наръчникът е на път!</p>' +
-              '<p style="color:rgba(255,255,255,.6);font-size:.9rem;">Провери имейла си — ще го получиш след секунди.</p>' +
-              '</div>'
-            );
-          }, 1000);
-        });
-      });</script>
+      <button type="submit"
+        style="width:100%;background:#FF6A00;border:none;border-radius:50px;color:#fff;font-size:1rem;font-weight:700;padding:1.1rem 1rem;cursor:pointer;">
+        Вземи безплатно →
+      </button>
+    </form>
+
+    <div id="lm-thanks" style="display:none;margin-top:1.5rem;">
+      <div style="font-size:2rem;margin-bottom:.5rem;">✅</div>
+      <p style="color:#FF6A00;font-size:1.1rem;font-weight:700;margin-bottom:.5rem;">Наръчникът е на път!</p>
+      <p style="color:rgba(255,255,255,.6);font-size:.9rem;">Провери имейла си — ще го получиш след секунди.</p>
     </div>
+
+    <script>
+    document.getElementById('lm-form').addEventListener('submit', function() {
+      setTimeout(function() {
+        document.getElementById('lm-form').style.display = 'none';
+        document.getElementById('lm-thanks').style.display = 'block';
+      }, 500);
+    });
+    </script>
 
     <p style="color:rgba(255,255,255,.25);font-size:.78rem;margin-top:1rem;">
       Без спам. Отписване по всяко време.
